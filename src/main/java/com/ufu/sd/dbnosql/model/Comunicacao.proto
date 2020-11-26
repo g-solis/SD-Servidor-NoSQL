@@ -1,0 +1,55 @@
+option java_package = "com.ufu.sd.dbnosql.controller";
+
+service CrudKeyValue{
+
+    rpc set(SetRequest) returns (Reply){}
+    rpc get(GetRequest) returns (Reply){}
+    rpc del(DelRequest) returns (Reply){}
+    rpc delVers(DelRequestVers) returns (Reply){}
+    rpc testAndSet(TestAndSetRequest) returns (Reply){}
+
+}
+
+message SetRequest{
+    required BigInteger k = 1;
+    required int64 ts = 2;
+    required bytes d = 3;
+}
+
+message Reply{
+    required string error = 1;
+    required VTripla v = 2;
+}
+
+message GetRequest{
+    required BigInteger k = 1;
+}
+
+message DelRequest{
+    required BigInteger k = 1;
+}
+
+message DelRequestVers{
+    required BigInteger k = 1;
+    required int64 vers = 2;
+}
+
+message TestAndSetRequest{
+    required BigInteger k = 1;
+    required VTripla v = 2;
+    required int64 vers = 3;
+}
+
+
+message VTripla{
+    required int64 vers = 1;
+    required int64 ts = 2;
+    required bytes d = 3;
+}
+
+// Uma vez que não podemos importar tipos de bibliotecas,
+// vamos converter o java.math.BigInteger para um array de bytes e inserir nessa mensagem para fazer a transferência pelo gRCP
+// e então converter este array de volta para java.math.BigInteger no Destino
+message BigInteger{
+    required bytes value = 1;
+}
