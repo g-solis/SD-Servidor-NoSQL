@@ -1,6 +1,14 @@
-package com.ufu.sd.dbnosql.controller;
+import com.ufu.sd.dbnosql.controller;
 
 public class DbNosqlService extends CrudKeyValueGrpc.CrudKeyValueImplBase{
+    @Override
+    public void set(com.ufu.sd.dbnosql.controller.Comunicacao.SetRequest request,
+                    io.grpc.stub.StreamObserver<com.ufu.sd.dbnosql.controller.Comunicacao.Reply> responseObserver) {
+
+        //Implementar
+
+    }
+
     @Override
     public void get(com.ufu.sd.dbnosql.controller.Comunicacao.GetRequest request,
                     io.grpc.stub.StreamObserver<com.ufu.sd.dbnosql.controller.Comunicacao.Reply> responseObserver) {
