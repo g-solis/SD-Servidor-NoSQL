@@ -18,18 +18,18 @@ import java.util.logging.Logger;
 public class DbNosqlServer{
     private static final Logger logger = Logger.getLogger(DbNosqlServer.class.getName());
 
-    private final int port;
-    private final Server server;
+    private final int port = 0;
+    private final Server server = null;
 
-    public DbNosqlServer(int port, URL featureFile) throws IOException {
-        this(ServerBuilder.forPort(port), port, RouteGuideUtil.parseFeatures(featureFile));
-    }
+//    public DbNosqlServer(int port, URL file_address) throws IOException {
+//        this(ServerBuilder.forPort(port), port, TODO_funçãodedarLoadNaTabela(file_address));
+//    }
 
-    public DbNosqlServer(ServerBuilder<?> serverBuilder, int port, Collection<Feature> features) {
-        this.port = port;
-        server = serverBuilder.addService(new RouteGuideService(features))
-                .build();
-    }
+//    public DbNosqlServer(ServerBuilder<?> serverBuilder, int port, TODO_TabelaHash Table) {
+//        this.port = port;
+//        server = serverBuilder.addService(new DbNosqlService(Table))
+//                .build();
+//    }
 
     public void start() throws IOException {
         server.start();
@@ -61,10 +61,10 @@ public class DbNosqlServer{
         }
     }
 
-    public static void main(String[] args) throws Exception {
-        DbNosqlServer server = new DbNosqlServer(8980);
-        server.start();
-        server.blockUntilShutdown();
-    }
+//    public static void main(String[] args) throws Exception {
+//        DbNosqlServer server = new DbNosqlServer(8980,"TODO_EndereçoDaTabela");
+//        server.start();
+//        server.blockUntilShutdown();
+//    }
 
 }
