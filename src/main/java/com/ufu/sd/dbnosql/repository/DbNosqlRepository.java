@@ -7,7 +7,7 @@ import java.math.BigInteger;
 
 public class DbNosqlRepository {
 
-    public void writeHashtableFile(Hashtable<BigInteger, HashtableValue> hashtable) throws IOException {
+    public static void writeHashtableFile(Hashtable<BigInteger, HashtableValue> hashtable) throws IOException {
         FileOutputStream fos = new FileOutputStream("/tmp/hash");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
 
@@ -15,7 +15,7 @@ public class DbNosqlRepository {
         oos.close();
     }
 
-    public Hashtable<BigInteger, HashtableValue> readHashtableFile() throws IOException, ClassNotFoundException {
+    public static Hashtable<BigInteger, HashtableValue> readHashtableFile() throws IOException, ClassNotFoundException {
         FileInputStream fis = new FileInputStream("/tmp/hash");
         ObjectInputStream ois = new ObjectInputStream(fis);
 
