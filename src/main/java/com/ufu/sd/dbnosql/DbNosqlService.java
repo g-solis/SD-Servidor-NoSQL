@@ -1,5 +1,6 @@
 package com.ufu.sd.dbnosql;
 import com.ufu.sd.dbnosql.controller.*;
+import io.grpc.stub.*;
 
 public class DbNosqlService extends CrudKeyValueGrpc.CrudKeyValueImplBase{
 
@@ -11,39 +12,39 @@ public class DbNosqlService extends CrudKeyValueGrpc.CrudKeyValueImplBase{
 //    }
 
     @Override
-    public void set(com.ufu.sd.dbnosql.controller.Comunicacao.SetRequest request,
-                    io.grpc.stub.StreamObserver<com.ufu.sd.dbnosql.controller.Comunicacao.Reply> responseObserver) {
+    public void set(Comunicacao.SetRequest request,
+                    StreamObserver<Comunicacao.Reply> responseObserver) {
 
         //Implementar
     }
 
     @Override
-    public void get(com.ufu.sd.dbnosql.controller.Comunicacao.GetRequest request,
-                    io.grpc.stub.StreamObserver<com.ufu.sd.dbnosql.controller.Comunicacao.Reply> responseObserver) {
+    public void get(Comunicacao.GetRequest request,
+                    StreamObserver<Comunicacao.Reply> responseObserver) {
         //Implementar
 
 
     }
 
     @Override
-    public void del(com.ufu.sd.dbnosql.controller.Comunicacao.DelRequest request,
-                    io.grpc.stub.StreamObserver<com.ufu.sd.dbnosql.controller.Comunicacao.Reply> responseObserver) {
-
-        //Implementar
-
-    }
-
-    @Override
-    public void delVers(com.ufu.sd.dbnosql.controller.Comunicacao.DelRequestVers request,
-                        io.grpc.stub.StreamObserver<com.ufu.sd.dbnosql.controller.Comunicacao.Reply> responseObserver) {
+    public void del(Comunicacao.DelRequest request,
+                    StreamObserver<Comunicacao.Reply> responseObserver) {
 
         //Implementar
 
     }
 
     @Override
-    public void testAndSet(com.ufu.sd.dbnosql.controller.Comunicacao.TestAndSetRequest request,
-                           io.grpc.stub.StreamObserver<com.ufu.sd.dbnosql.controller.Comunicacao.Reply> responseObserver) {
+    public void delVers(Comunicacao.DelRequestVers request,
+                        StreamObserver<Comunicacao.Reply> responseObserver) {
+
+        //Implementar
+
+    }
+
+    @Override
+    public void testAndSet(Comunicacao.TestAndSetRequest request,
+                           StreamObserver<Comunicacao.Reply> responseObserver) {
 
         //Implementar
 
