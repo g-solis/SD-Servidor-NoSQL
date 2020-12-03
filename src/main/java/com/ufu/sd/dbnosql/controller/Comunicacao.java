@@ -6086,7 +6086,7 @@ public final class Comunicacao {
       "igInteger\022\027\n\005value\030\002 \002(\0132\010.VTripla\022\017\n\007ve" +
       "rsion\030\003 \002(\003\";\n\007VTripla\022\017\n\007version\030\001 \002(\003\022" +
       "\021\n\ttimestamp\030\002 \002(\003\022\014\n\004data\030\003 \002(\014\"\033\n\nBigI" +
-      "nteger\022\r\n\005value\030\001 \002(\0142\272\001\n\014CrudkeyValue\022\034" +
+      "nteger\022\r\n\005value\030\001 \002(\0142\272\001\n\014CrudKeyValue\022\034" +
       "\n\003set\022\013.SetRequest\032\006.Reply\"\000\022\034\n\003get\022\013.Ge" +
       "tRequest\032\006.Reply\"\000\022\034\n\003del\022\013.DelRequest\032\006" +
       ".Reply\"\000\022$\n\007delVers\022\017.DelRequestVers\032\006.R" +

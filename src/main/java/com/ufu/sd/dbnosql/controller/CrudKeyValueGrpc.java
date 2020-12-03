@@ -20,11 +20,11 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.33.1)",
     comments = "Source: Comunicacao.proto")
-public final class CrudkeyValueGrpc {
+public final class CrudKeyValueGrpc {
 
-  private CrudkeyValueGrpc() {}
+  private CrudKeyValueGrpc() {}
 
-  public static final String SERVICE_NAME = "CrudkeyValue";
+  public static final String SERVICE_NAME = "CrudKeyValue";
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<com.ufu.sd.dbnosql.controller.Comunicacao.SetRequest,
@@ -38,10 +38,10 @@ public final class CrudkeyValueGrpc {
   public static io.grpc.MethodDescriptor<com.ufu.sd.dbnosql.controller.Comunicacao.SetRequest,
       com.ufu.sd.dbnosql.controller.Comunicacao.Reply> getSetMethod() {
     io.grpc.MethodDescriptor<com.ufu.sd.dbnosql.controller.Comunicacao.SetRequest, com.ufu.sd.dbnosql.controller.Comunicacao.Reply> getSetMethod;
-    if ((getSetMethod = CrudkeyValueGrpc.getSetMethod) == null) {
-      synchronized (CrudkeyValueGrpc.class) {
-        if ((getSetMethod = CrudkeyValueGrpc.getSetMethod) == null) {
-          CrudkeyValueGrpc.getSetMethod = getSetMethod =
+    if ((getSetMethod = CrudKeyValueGrpc.getSetMethod) == null) {
+      synchronized (CrudKeyValueGrpc.class) {
+        if ((getSetMethod = CrudKeyValueGrpc.getSetMethod) == null) {
+          CrudKeyValueGrpc.getSetMethod = getSetMethod =
               io.grpc.MethodDescriptor.<com.ufu.sd.dbnosql.controller.Comunicacao.SetRequest, com.ufu.sd.dbnosql.controller.Comunicacao.Reply>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "set"))
@@ -50,7 +50,7 @@ public final class CrudkeyValueGrpc {
                   com.ufu.sd.dbnosql.controller.Comunicacao.SetRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.ufu.sd.dbnosql.controller.Comunicacao.Reply.getDefaultInstance()))
-              .setSchemaDescriptor(new CrudkeyValueMethodDescriptorSupplier("set"))
+              .setSchemaDescriptor(new CrudKeyValueMethodDescriptorSupplier("set"))
               .build();
         }
       }
@@ -69,10 +69,10 @@ public final class CrudkeyValueGrpc {
   public static io.grpc.MethodDescriptor<com.ufu.sd.dbnosql.controller.Comunicacao.GetRequest,
       com.ufu.sd.dbnosql.controller.Comunicacao.Reply> getGetMethod() {
     io.grpc.MethodDescriptor<com.ufu.sd.dbnosql.controller.Comunicacao.GetRequest, com.ufu.sd.dbnosql.controller.Comunicacao.Reply> getGetMethod;
-    if ((getGetMethod = CrudkeyValueGrpc.getGetMethod) == null) {
-      synchronized (CrudkeyValueGrpc.class) {
-        if ((getGetMethod = CrudkeyValueGrpc.getGetMethod) == null) {
-          CrudkeyValueGrpc.getGetMethod = getGetMethod =
+    if ((getGetMethod = CrudKeyValueGrpc.getGetMethod) == null) {
+      synchronized (CrudKeyValueGrpc.class) {
+        if ((getGetMethod = CrudKeyValueGrpc.getGetMethod) == null) {
+          CrudKeyValueGrpc.getGetMethod = getGetMethod =
               io.grpc.MethodDescriptor.<com.ufu.sd.dbnosql.controller.Comunicacao.GetRequest, com.ufu.sd.dbnosql.controller.Comunicacao.Reply>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "get"))
@@ -81,7 +81,7 @@ public final class CrudkeyValueGrpc {
                   com.ufu.sd.dbnosql.controller.Comunicacao.GetRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.ufu.sd.dbnosql.controller.Comunicacao.Reply.getDefaultInstance()))
-              .setSchemaDescriptor(new CrudkeyValueMethodDescriptorSupplier("get"))
+              .setSchemaDescriptor(new CrudKeyValueMethodDescriptorSupplier("get"))
               .build();
         }
       }
@@ -100,10 +100,10 @@ public final class CrudkeyValueGrpc {
   public static io.grpc.MethodDescriptor<com.ufu.sd.dbnosql.controller.Comunicacao.DelRequest,
       com.ufu.sd.dbnosql.controller.Comunicacao.Reply> getDelMethod() {
     io.grpc.MethodDescriptor<com.ufu.sd.dbnosql.controller.Comunicacao.DelRequest, com.ufu.sd.dbnosql.controller.Comunicacao.Reply> getDelMethod;
-    if ((getDelMethod = CrudkeyValueGrpc.getDelMethod) == null) {
-      synchronized (CrudkeyValueGrpc.class) {
-        if ((getDelMethod = CrudkeyValueGrpc.getDelMethod) == null) {
-          CrudkeyValueGrpc.getDelMethod = getDelMethod =
+    if ((getDelMethod = CrudKeyValueGrpc.getDelMethod) == null) {
+      synchronized (CrudKeyValueGrpc.class) {
+        if ((getDelMethod = CrudKeyValueGrpc.getDelMethod) == null) {
+          CrudKeyValueGrpc.getDelMethod = getDelMethod =
               io.grpc.MethodDescriptor.<com.ufu.sd.dbnosql.controller.Comunicacao.DelRequest, com.ufu.sd.dbnosql.controller.Comunicacao.Reply>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "del"))
@@ -112,7 +112,7 @@ public final class CrudkeyValueGrpc {
                   com.ufu.sd.dbnosql.controller.Comunicacao.DelRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.ufu.sd.dbnosql.controller.Comunicacao.Reply.getDefaultInstance()))
-              .setSchemaDescriptor(new CrudkeyValueMethodDescriptorSupplier("del"))
+              .setSchemaDescriptor(new CrudKeyValueMethodDescriptorSupplier("del"))
               .build();
         }
       }
@@ -131,10 +131,10 @@ public final class CrudkeyValueGrpc {
   public static io.grpc.MethodDescriptor<com.ufu.sd.dbnosql.controller.Comunicacao.DelRequestVers,
       com.ufu.sd.dbnosql.controller.Comunicacao.Reply> getDelVersMethod() {
     io.grpc.MethodDescriptor<com.ufu.sd.dbnosql.controller.Comunicacao.DelRequestVers, com.ufu.sd.dbnosql.controller.Comunicacao.Reply> getDelVersMethod;
-    if ((getDelVersMethod = CrudkeyValueGrpc.getDelVersMethod) == null) {
-      synchronized (CrudkeyValueGrpc.class) {
-        if ((getDelVersMethod = CrudkeyValueGrpc.getDelVersMethod) == null) {
-          CrudkeyValueGrpc.getDelVersMethod = getDelVersMethod =
+    if ((getDelVersMethod = CrudKeyValueGrpc.getDelVersMethod) == null) {
+      synchronized (CrudKeyValueGrpc.class) {
+        if ((getDelVersMethod = CrudKeyValueGrpc.getDelVersMethod) == null) {
+          CrudKeyValueGrpc.getDelVersMethod = getDelVersMethod =
               io.grpc.MethodDescriptor.<com.ufu.sd.dbnosql.controller.Comunicacao.DelRequestVers, com.ufu.sd.dbnosql.controller.Comunicacao.Reply>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "delVers"))
@@ -143,7 +143,7 @@ public final class CrudkeyValueGrpc {
                   com.ufu.sd.dbnosql.controller.Comunicacao.DelRequestVers.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.ufu.sd.dbnosql.controller.Comunicacao.Reply.getDefaultInstance()))
-              .setSchemaDescriptor(new CrudkeyValueMethodDescriptorSupplier("delVers"))
+              .setSchemaDescriptor(new CrudKeyValueMethodDescriptorSupplier("delVers"))
               .build();
         }
       }
@@ -162,10 +162,10 @@ public final class CrudkeyValueGrpc {
   public static io.grpc.MethodDescriptor<com.ufu.sd.dbnosql.controller.Comunicacao.TestAndSetRequest,
       com.ufu.sd.dbnosql.controller.Comunicacao.Reply> getTestAndSetMethod() {
     io.grpc.MethodDescriptor<com.ufu.sd.dbnosql.controller.Comunicacao.TestAndSetRequest, com.ufu.sd.dbnosql.controller.Comunicacao.Reply> getTestAndSetMethod;
-    if ((getTestAndSetMethod = CrudkeyValueGrpc.getTestAndSetMethod) == null) {
-      synchronized (CrudkeyValueGrpc.class) {
-        if ((getTestAndSetMethod = CrudkeyValueGrpc.getTestAndSetMethod) == null) {
-          CrudkeyValueGrpc.getTestAndSetMethod = getTestAndSetMethod =
+    if ((getTestAndSetMethod = CrudKeyValueGrpc.getTestAndSetMethod) == null) {
+      synchronized (CrudKeyValueGrpc.class) {
+        if ((getTestAndSetMethod = CrudKeyValueGrpc.getTestAndSetMethod) == null) {
+          CrudKeyValueGrpc.getTestAndSetMethod = getTestAndSetMethod =
               io.grpc.MethodDescriptor.<com.ufu.sd.dbnosql.controller.Comunicacao.TestAndSetRequest, com.ufu.sd.dbnosql.controller.Comunicacao.Reply>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "testAndSet"))
@@ -174,7 +174,7 @@ public final class CrudkeyValueGrpc {
                   com.ufu.sd.dbnosql.controller.Comunicacao.TestAndSetRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.ufu.sd.dbnosql.controller.Comunicacao.Reply.getDefaultInstance()))
-              .setSchemaDescriptor(new CrudkeyValueMethodDescriptorSupplier("testAndSet"))
+              .setSchemaDescriptor(new CrudKeyValueMethodDescriptorSupplier("testAndSet"))
               .build();
         }
       }
@@ -185,50 +185,50 @@ public final class CrudkeyValueGrpc {
   /**
    * Creates a new async stub that supports all call types for the service
    */
-  public static CrudkeyValueStub newStub(io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<CrudkeyValueStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<CrudkeyValueStub>() {
+  public static CrudKeyValueStub newStub(io.grpc.Channel channel) {
+    io.grpc.stub.AbstractStub.StubFactory<CrudKeyValueStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<CrudKeyValueStub>() {
         @java.lang.Override
-        public CrudkeyValueStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new CrudkeyValueStub(channel, callOptions);
+        public CrudKeyValueStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new CrudKeyValueStub(channel, callOptions);
         }
       };
-    return CrudkeyValueStub.newStub(factory, channel);
+    return CrudKeyValueStub.newStub(factory, channel);
   }
 
   /**
    * Creates a new blocking-style stub that supports unary and streaming output calls on the service
    */
-  public static CrudkeyValueBlockingStub newBlockingStub(
+  public static CrudKeyValueBlockingStub newBlockingStub(
       io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<CrudkeyValueBlockingStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<CrudkeyValueBlockingStub>() {
+    io.grpc.stub.AbstractStub.StubFactory<CrudKeyValueBlockingStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<CrudKeyValueBlockingStub>() {
         @java.lang.Override
-        public CrudkeyValueBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new CrudkeyValueBlockingStub(channel, callOptions);
+        public CrudKeyValueBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new CrudKeyValueBlockingStub(channel, callOptions);
         }
       };
-    return CrudkeyValueBlockingStub.newStub(factory, channel);
+    return CrudKeyValueBlockingStub.newStub(factory, channel);
   }
 
   /**
    * Creates a new ListenableFuture-style stub that supports unary calls on the service
    */
-  public static CrudkeyValueFutureStub newFutureStub(
+  public static CrudKeyValueFutureStub newFutureStub(
       io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<CrudkeyValueFutureStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<CrudkeyValueFutureStub>() {
+    io.grpc.stub.AbstractStub.StubFactory<CrudKeyValueFutureStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<CrudKeyValueFutureStub>() {
         @java.lang.Override
-        public CrudkeyValueFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new CrudkeyValueFutureStub(channel, callOptions);
+        public CrudKeyValueFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new CrudKeyValueFutureStub(channel, callOptions);
         }
       };
-    return CrudkeyValueFutureStub.newStub(factory, channel);
+    return CrudKeyValueFutureStub.newStub(factory, channel);
   }
 
   /**
    */
-  public static abstract class CrudkeyValueImplBase implements io.grpc.BindableService {
+  public static abstract class CrudKeyValueImplBase implements io.grpc.BindableService {
 
     /**
      */
@@ -308,16 +308,16 @@ public final class CrudkeyValueGrpc {
 
   /**
    */
-  public static final class CrudkeyValueStub extends io.grpc.stub.AbstractAsyncStub<CrudkeyValueStub> {
-    private CrudkeyValueStub(
+  public static final class CrudKeyValueStub extends io.grpc.stub.AbstractAsyncStub<CrudKeyValueStub> {
+    private CrudKeyValueStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected CrudkeyValueStub build(
+    protected CrudKeyValueStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new CrudkeyValueStub(channel, callOptions);
+      return new CrudKeyValueStub(channel, callOptions);
     }
 
     /**
@@ -363,16 +363,16 @@ public final class CrudkeyValueGrpc {
 
   /**
    */
-  public static final class CrudkeyValueBlockingStub extends io.grpc.stub.AbstractBlockingStub<CrudkeyValueBlockingStub> {
-    private CrudkeyValueBlockingStub(
+  public static final class CrudKeyValueBlockingStub extends io.grpc.stub.AbstractBlockingStub<CrudKeyValueBlockingStub> {
+    private CrudKeyValueBlockingStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected CrudkeyValueBlockingStub build(
+    protected CrudKeyValueBlockingStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new CrudkeyValueBlockingStub(channel, callOptions);
+      return new CrudKeyValueBlockingStub(channel, callOptions);
     }
 
     /**
@@ -413,16 +413,16 @@ public final class CrudkeyValueGrpc {
 
   /**
    */
-  public static final class CrudkeyValueFutureStub extends io.grpc.stub.AbstractFutureStub<CrudkeyValueFutureStub> {
-    private CrudkeyValueFutureStub(
+  public static final class CrudKeyValueFutureStub extends io.grpc.stub.AbstractFutureStub<CrudKeyValueFutureStub> {
+    private CrudKeyValueFutureStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected CrudkeyValueFutureStub build(
+    protected CrudKeyValueFutureStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new CrudkeyValueFutureStub(channel, callOptions);
+      return new CrudKeyValueFutureStub(channel, callOptions);
     }
 
     /**
@@ -477,10 +477,10 @@ public final class CrudkeyValueGrpc {
       io.grpc.stub.ServerCalls.ServerStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.ClientStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.BidiStreamingMethod<Req, Resp> {
-    private final CrudkeyValueImplBase serviceImpl;
+    private final CrudKeyValueImplBase serviceImpl;
     private final int methodId;
 
-    MethodHandlers(CrudkeyValueImplBase serviceImpl, int methodId) {
+    MethodHandlers(CrudKeyValueImplBase serviceImpl, int methodId) {
       this.serviceImpl = serviceImpl;
       this.methodId = methodId;
     }
@@ -525,9 +525,9 @@ public final class CrudkeyValueGrpc {
     }
   }
 
-  private static abstract class CrudkeyValueBaseDescriptorSupplier
+  private static abstract class CrudKeyValueBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoFileDescriptorSupplier, io.grpc.protobuf.ProtoServiceDescriptorSupplier {
-    CrudkeyValueBaseDescriptorSupplier() {}
+    CrudKeyValueBaseDescriptorSupplier() {}
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
@@ -536,21 +536,21 @@ public final class CrudkeyValueGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.ServiceDescriptor getServiceDescriptor() {
-      return getFileDescriptor().findServiceByName("CrudkeyValue");
+      return getFileDescriptor().findServiceByName("CrudKeyValue");
     }
   }
 
-  private static final class CrudkeyValueFileDescriptorSupplier
-      extends CrudkeyValueBaseDescriptorSupplier {
-    CrudkeyValueFileDescriptorSupplier() {}
+  private static final class CrudKeyValueFileDescriptorSupplier
+      extends CrudKeyValueBaseDescriptorSupplier {
+    CrudKeyValueFileDescriptorSupplier() {}
   }
 
-  private static final class CrudkeyValueMethodDescriptorSupplier
-      extends CrudkeyValueBaseDescriptorSupplier
+  private static final class CrudKeyValueMethodDescriptorSupplier
+      extends CrudKeyValueBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoMethodDescriptorSupplier {
     private final String methodName;
 
-    CrudkeyValueMethodDescriptorSupplier(String methodName) {
+    CrudKeyValueMethodDescriptorSupplier(String methodName) {
       this.methodName = methodName;
     }
 
@@ -565,11 +565,11 @@ public final class CrudkeyValueGrpc {
   public static io.grpc.ServiceDescriptor getServiceDescriptor() {
     io.grpc.ServiceDescriptor result = serviceDescriptor;
     if (result == null) {
-      synchronized (CrudkeyValueGrpc.class) {
+      synchronized (CrudKeyValueGrpc.class) {
         result = serviceDescriptor;
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
-              .setSchemaDescriptor(new CrudkeyValueFileDescriptorSupplier())
+              .setSchemaDescriptor(new CrudKeyValueFileDescriptorSupplier())
               .addMethod(getSetMethod())
               .addMethod(getGetMethod())
               .addMethod(getDelMethod())

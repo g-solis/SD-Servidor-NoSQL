@@ -2,7 +2,7 @@ syntax = "proto2";
 
 option java_package = "com.ufu.sd.dbnosql.controller";
 
-service CrudkeyValue{
+service CrudKeyValue{
 
     rpc set(SetRequest) returns (Reply){}
     rpc get(GetRequest) returns (Reply){}
