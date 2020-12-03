@@ -138,6 +138,7 @@ public class DbNosqlService extends CrudKeyValueGrpc.CrudKeyValueImplBase{
 
                 htValue.timestamp = request.getValue().getTimestamp();
                 htValue.data = ToByteArray(request.getValue().getData());
+                htValue.version += 1;
 
                 hashtable.put(key,htValue);
             }
