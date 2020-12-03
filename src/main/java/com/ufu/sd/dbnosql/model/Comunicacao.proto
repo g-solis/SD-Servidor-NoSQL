@@ -2,7 +2,7 @@ syntax = "proto2";
 
 option java_package = "com.ufu.sd.dbnosql.controller";
 
-service CrudKeyValue{
+service CrudkeyValue{
 
     rpc set(SetRequest) returns (Reply){}
     rpc get(GetRequest) returns (Reply){}
@@ -13,40 +13,40 @@ service CrudKeyValue{
 }
 
 message SetRequest{
-    required BigInteger k = 1;
-    required int64 ts = 2;
-    required bytes d = 3;
+    required BigInteger key = 1;
+    required int64 timestamp = 2;
+    required bytes data = 3;
 }
 
 message Reply{
     required string error = 1;
-    required VTripla v = 2;
+    required VTripla value = 2;
 }
 
 message GetRequest{
-    required BigInteger k = 1;
+    required BigInteger key = 1;
 }
 
 message DelRequest{
-    required BigInteger k = 1;
+    required BigInteger key = 1;
 }
 
 message DelRequestVers{
-    required BigInteger k = 1;
-    required int64 vers = 2;
+    required BigInteger key = 1;
+    required int64 version = 2;
 }
 
 message TestAndSetRequest{
-    required BigInteger k = 1;
-    required VTripla v = 2;
-    required int64 vers = 3;
+    required BigInteger key = 1;
+    required VTripla value = 2;
+    required int64 version = 3;
 }
 
 
 message VTripla{
-    required int64 vers = 1;
-    required int64 ts = 2;
-    required bytes d = 3;
+    required int64 version = 1;
+    required int64 timestamp = 2;
+    required bytes data = 3;
 }
 
 // Uma vez que não podemos importar tipos de bibliotecas,

@@ -19,41 +19,41 @@ public final class Comunicacao {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required .BigInteger k = 1;</code>
-     * @return Whether the k field is set.
+     * <code>required .BigInteger key = 1;</code>
+     * @return Whether the key field is set.
      */
-    boolean hasK();
+    boolean hasKey();
     /**
-     * <code>required .BigInteger k = 1;</code>
-     * @return The k.
+     * <code>required .BigInteger key = 1;</code>
+     * @return The key.
      */
-    com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger getK();
+    com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger getKey();
     /**
-     * <code>required .BigInteger k = 1;</code>
+     * <code>required .BigInteger key = 1;</code>
      */
-    com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder getKOrBuilder();
+    com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder getKeyOrBuilder();
 
     /**
-     * <code>required int64 ts = 2;</code>
-     * @return Whether the ts field is set.
+     * <code>required int64 timestamp = 2;</code>
+     * @return Whether the timestamp field is set.
      */
-    boolean hasTs();
+    boolean hasTimestamp();
     /**
-     * <code>required int64 ts = 2;</code>
-     * @return The ts.
+     * <code>required int64 timestamp = 2;</code>
+     * @return The timestamp.
      */
-    long getTs();
+    long getTimestamp();
 
     /**
-     * <code>required bytes d = 3;</code>
-     * @return Whether the d field is set.
+     * <code>required bytes data = 3;</code>
+     * @return Whether the data field is set.
      */
-    boolean hasD();
+    boolean hasData();
     /**
-     * <code>required bytes d = 3;</code>
-     * @return The d.
+     * <code>required bytes data = 3;</code>
+     * @return The data.
      */
-    com.google.protobuf.ByteString getD();
+    com.google.protobuf.ByteString getData();
   }
   /**
    * Protobuf type {@code SetRequest}
@@ -68,7 +68,7 @@ public final class Comunicacao {
       super(builder);
     }
     private SetRequest() {
-      d_ = com.google.protobuf.ByteString.EMPTY;
+      data_ = com.google.protobuf.ByteString.EMPTY;
     }
 
     @java.lang.Override
@@ -105,24 +105,24 @@ public final class Comunicacao {
             case 10: {
               com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) != 0)) {
-                subBuilder = k_.toBuilder();
+                subBuilder = key_.toBuilder();
               }
-              k_ = input.readMessage(com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.PARSER, extensionRegistry);
+              key_ = input.readMessage(com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.PARSER, extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(k_);
-                k_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(key_);
+                key_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00000001;
               break;
             }
             case 16: {
               bitField0_ |= 0x00000002;
-              ts_ = input.readInt64();
+              timestamp_ = input.readInt64();
               break;
             }
             case 26: {
               bitField0_ |= 0x00000004;
-              d_ = input.readBytes();
+              data_ = input.readBytes();
               break;
             }
             default: {
@@ -158,68 +158,68 @@ public final class Comunicacao {
     }
 
     private int bitField0_;
-    public static final int K_FIELD_NUMBER = 1;
-    private com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger k_;
+    public static final int KEY_FIELD_NUMBER = 1;
+    private com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger key_;
     /**
-     * <code>required .BigInteger k = 1;</code>
-     * @return Whether the k field is set.
+     * <code>required .BigInteger key = 1;</code>
+     * @return Whether the key field is set.
      */
     @java.lang.Override
-    public boolean hasK() {
+    public boolean hasKey() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>required .BigInteger k = 1;</code>
-     * @return The k.
+     * <code>required .BigInteger key = 1;</code>
+     * @return The key.
      */
     @java.lang.Override
-    public com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger getK() {
-      return k_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : k_;
+    public com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger getKey() {
+      return key_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : key_;
     }
     /**
-     * <code>required .BigInteger k = 1;</code>
+     * <code>required .BigInteger key = 1;</code>
      */
     @java.lang.Override
-    public com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder getKOrBuilder() {
-      return k_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : k_;
+    public com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder getKeyOrBuilder() {
+      return key_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : key_;
     }
 
-    public static final int TS_FIELD_NUMBER = 2;
-    private long ts_;
+    public static final int TIMESTAMP_FIELD_NUMBER = 2;
+    private long timestamp_;
     /**
-     * <code>required int64 ts = 2;</code>
-     * @return Whether the ts field is set.
+     * <code>required int64 timestamp = 2;</code>
+     * @return Whether the timestamp field is set.
      */
     @java.lang.Override
-    public boolean hasTs() {
+    public boolean hasTimestamp() {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>required int64 ts = 2;</code>
-     * @return The ts.
+     * <code>required int64 timestamp = 2;</code>
+     * @return The timestamp.
      */
     @java.lang.Override
-    public long getTs() {
-      return ts_;
+    public long getTimestamp() {
+      return timestamp_;
     }
 
-    public static final int D_FIELD_NUMBER = 3;
-    private com.google.protobuf.ByteString d_;
+    public static final int DATA_FIELD_NUMBER = 3;
+    private com.google.protobuf.ByteString data_;
     /**
-     * <code>required bytes d = 3;</code>
-     * @return Whether the d field is set.
+     * <code>required bytes data = 3;</code>
+     * @return Whether the data field is set.
      */
     @java.lang.Override
-    public boolean hasD() {
+    public boolean hasData() {
       return ((bitField0_ & 0x00000004) != 0);
     }
     /**
-     * <code>required bytes d = 3;</code>
-     * @return The d.
+     * <code>required bytes data = 3;</code>
+     * @return The data.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString getD() {
-      return d_;
+    public com.google.protobuf.ByteString getData() {
+      return data_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -229,19 +229,19 @@ public final class Comunicacao {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasK()) {
+      if (!hasKey()) {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasTs()) {
+      if (!hasTimestamp()) {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasD()) {
+      if (!hasData()) {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!getK().isInitialized()) {
+      if (!getKey().isInitialized()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -253,13 +253,13 @@ public final class Comunicacao {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeMessage(1, getK());
+        output.writeMessage(1, getKey());
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        output.writeInt64(2, ts_);
+        output.writeInt64(2, timestamp_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
-        output.writeBytes(3, d_);
+        output.writeBytes(3, data_);
       }
       unknownFields.writeTo(output);
     }
@@ -272,15 +272,15 @@ public final class Comunicacao {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getK());
+          .computeMessageSize(1, getKey());
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(2, ts_);
+          .computeInt64Size(2, timestamp_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(3, d_);
+          .computeBytesSize(3, data_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -297,20 +297,20 @@ public final class Comunicacao {
       }
       com.ufu.sd.dbnosql.controller.Comunicacao.SetRequest other = (com.ufu.sd.dbnosql.controller.Comunicacao.SetRequest) obj;
 
-      if (hasK() != other.hasK()) return false;
-      if (hasK()) {
-        if (!getK()
-            .equals(other.getK())) return false;
+      if (hasKey() != other.hasKey()) return false;
+      if (hasKey()) {
+        if (!getKey()
+            .equals(other.getKey())) return false;
       }
-      if (hasTs() != other.hasTs()) return false;
-      if (hasTs()) {
-        if (getTs()
-            != other.getTs()) return false;
+      if (hasTimestamp() != other.hasTimestamp()) return false;
+      if (hasTimestamp()) {
+        if (getTimestamp()
+            != other.getTimestamp()) return false;
       }
-      if (hasD() != other.hasD()) return false;
-      if (hasD()) {
-        if (!getD()
-            .equals(other.getD())) return false;
+      if (hasData() != other.hasData()) return false;
+      if (hasData()) {
+        if (!getData()
+            .equals(other.getData())) return false;
       }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
@@ -323,18 +323,18 @@ public final class Comunicacao {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasK()) {
-        hash = (37 * hash) + K_FIELD_NUMBER;
-        hash = (53 * hash) + getK().hashCode();
+      if (hasKey()) {
+        hash = (37 * hash) + KEY_FIELD_NUMBER;
+        hash = (53 * hash) + getKey().hashCode();
       }
-      if (hasTs()) {
-        hash = (37 * hash) + TS_FIELD_NUMBER;
+      if (hasTimestamp()) {
+        hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getTs());
+            getTimestamp());
       }
-      if (hasD()) {
-        hash = (37 * hash) + D_FIELD_NUMBER;
-        hash = (53 * hash) + getD().hashCode();
+      if (hasData()) {
+        hash = (37 * hash) + DATA_FIELD_NUMBER;
+        hash = (53 * hash) + getData().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -464,21 +464,21 @@ public final class Comunicacao {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getKFieldBuilder();
+          getKeyFieldBuilder();
         }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (kBuilder_ == null) {
-          k_ = null;
+        if (keyBuilder_ == null) {
+          key_ = null;
         } else {
-          kBuilder_.clear();
+          keyBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
-        ts_ = 0L;
+        timestamp_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
-        d_ = com.google.protobuf.ByteString.EMPTY;
+        data_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
@@ -509,21 +509,21 @@ public final class Comunicacao {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          if (kBuilder_ == null) {
-            result.k_ = k_;
+          if (keyBuilder_ == null) {
+            result.key_ = key_;
           } else {
-            result.k_ = kBuilder_.build();
+            result.key_ = keyBuilder_.build();
           }
           to_bitField0_ |= 0x00000001;
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.ts_ = ts_;
+          result.timestamp_ = timestamp_;
           to_bitField0_ |= 0x00000002;
         }
         if (((from_bitField0_ & 0x00000004) != 0)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.d_ = d_;
+        result.data_ = data_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -573,14 +573,14 @@ public final class Comunicacao {
 
       public Builder mergeFrom(com.ufu.sd.dbnosql.controller.Comunicacao.SetRequest other) {
         if (other == com.ufu.sd.dbnosql.controller.Comunicacao.SetRequest.getDefaultInstance()) return this;
-        if (other.hasK()) {
-          mergeK(other.getK());
+        if (other.hasKey()) {
+          mergeKey(other.getKey());
         }
-        if (other.hasTs()) {
-          setTs(other.getTs());
+        if (other.hasTimestamp()) {
+          setTimestamp(other.getTimestamp());
         }
-        if (other.hasD()) {
-          setD(other.getD());
+        if (other.hasData()) {
+          setData(other.getData());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -589,16 +589,16 @@ public final class Comunicacao {
 
       @java.lang.Override
       public final boolean isInitialized() {
-        if (!hasK()) {
+        if (!hasKey()) {
           return false;
         }
-        if (!hasTs()) {
+        if (!hasTimestamp()) {
           return false;
         }
-        if (!hasD()) {
+        if (!hasData()) {
           return false;
         }
-        if (!getK().isInitialized()) {
+        if (!getKey().isInitialized()) {
           return false;
         }
         return true;
@@ -624,203 +624,203 @@ public final class Comunicacao {
       }
       private int bitField0_;
 
-      private com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger k_;
+      private com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger key_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger, com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder, com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder> kBuilder_;
+          com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger, com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder, com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder> keyBuilder_;
       /**
-       * <code>required .BigInteger k = 1;</code>
-       * @return Whether the k field is set.
+       * <code>required .BigInteger key = 1;</code>
+       * @return Whether the key field is set.
        */
-      public boolean hasK() {
+      public boolean hasKey() {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
-       * @return The k.
+       * <code>required .BigInteger key = 1;</code>
+       * @return The key.
        */
-      public com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger getK() {
-        if (kBuilder_ == null) {
-          return k_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : k_;
+      public com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger getKey() {
+        if (keyBuilder_ == null) {
+          return key_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : key_;
         } else {
-          return kBuilder_.getMessage();
+          return keyBuilder_.getMessage();
         }
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
-      public Builder setK(com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger value) {
-        if (kBuilder_ == null) {
+      public Builder setKey(com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger value) {
+        if (keyBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          k_ = value;
+          key_ = value;
           onChanged();
         } else {
-          kBuilder_.setMessage(value);
+          keyBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000001;
         return this;
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
-      public Builder setK(
+      public Builder setKey(
           com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder builderForValue) {
-        if (kBuilder_ == null) {
-          k_ = builderForValue.build();
+        if (keyBuilder_ == null) {
+          key_ = builderForValue.build();
           onChanged();
         } else {
-          kBuilder_.setMessage(builderForValue.build());
+          keyBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000001;
         return this;
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
-      public Builder mergeK(com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger value) {
-        if (kBuilder_ == null) {
+      public Builder mergeKey(com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger value) {
+        if (keyBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0) &&
-              k_ != null &&
-              k_ != com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance()) {
-            k_ =
-              com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.newBuilder(k_).mergeFrom(value).buildPartial();
+              key_ != null &&
+              key_ != com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance()) {
+            key_ =
+              com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.newBuilder(key_).mergeFrom(value).buildPartial();
           } else {
-            k_ = value;
+            key_ = value;
           }
           onChanged();
         } else {
-          kBuilder_.mergeFrom(value);
+          keyBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000001;
         return this;
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
-      public Builder clearK() {
-        if (kBuilder_ == null) {
-          k_ = null;
+      public Builder clearKey() {
+        if (keyBuilder_ == null) {
+          key_ = null;
           onChanged();
         } else {
-          kBuilder_.clear();
+          keyBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
-      public com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder getKBuilder() {
+      public com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder getKeyBuilder() {
         bitField0_ |= 0x00000001;
         onChanged();
-        return getKFieldBuilder().getBuilder();
+        return getKeyFieldBuilder().getBuilder();
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
-      public com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder getKOrBuilder() {
-        if (kBuilder_ != null) {
-          return kBuilder_.getMessageOrBuilder();
+      public com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder getKeyOrBuilder() {
+        if (keyBuilder_ != null) {
+          return keyBuilder_.getMessageOrBuilder();
         } else {
-          return k_ == null ?
-              com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : k_;
+          return key_ == null ?
+              com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : key_;
         }
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger, com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder, com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder> 
-          getKFieldBuilder() {
-        if (kBuilder_ == null) {
-          kBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+          getKeyFieldBuilder() {
+        if (keyBuilder_ == null) {
+          keyBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger, com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder, com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder>(
-                  getK(),
+                  getKey(),
                   getParentForChildren(),
                   isClean());
-          k_ = null;
+          key_ = null;
         }
-        return kBuilder_;
+        return keyBuilder_;
       }
 
-      private long ts_ ;
+      private long timestamp_ ;
       /**
-       * <code>required int64 ts = 2;</code>
-       * @return Whether the ts field is set.
+       * <code>required int64 timestamp = 2;</code>
+       * @return Whether the timestamp field is set.
        */
       @java.lang.Override
-      public boolean hasTs() {
+      public boolean hasTimestamp() {
         return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <code>required int64 ts = 2;</code>
-       * @return The ts.
+       * <code>required int64 timestamp = 2;</code>
+       * @return The timestamp.
        */
       @java.lang.Override
-      public long getTs() {
-        return ts_;
+      public long getTimestamp() {
+        return timestamp_;
       }
       /**
-       * <code>required int64 ts = 2;</code>
-       * @param value The ts to set.
+       * <code>required int64 timestamp = 2;</code>
+       * @param value The timestamp to set.
        * @return This builder for chaining.
        */
-      public Builder setTs(long value) {
+      public Builder setTimestamp(long value) {
         bitField0_ |= 0x00000002;
-        ts_ = value;
+        timestamp_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int64 ts = 2;</code>
+       * <code>required int64 timestamp = 2;</code>
        * @return This builder for chaining.
        */
-      public Builder clearTs() {
+      public Builder clearTimestamp() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        ts_ = 0L;
+        timestamp_ = 0L;
         onChanged();
         return this;
       }
 
-      private com.google.protobuf.ByteString d_ = com.google.protobuf.ByteString.EMPTY;
+      private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>required bytes d = 3;</code>
-       * @return Whether the d field is set.
+       * <code>required bytes data = 3;</code>
+       * @return Whether the data field is set.
        */
       @java.lang.Override
-      public boolean hasD() {
+      public boolean hasData() {
         return ((bitField0_ & 0x00000004) != 0);
       }
       /**
-       * <code>required bytes d = 3;</code>
-       * @return The d.
+       * <code>required bytes data = 3;</code>
+       * @return The data.
        */
       @java.lang.Override
-      public com.google.protobuf.ByteString getD() {
-        return d_;
+      public com.google.protobuf.ByteString getData() {
+        return data_;
       }
       /**
-       * <code>required bytes d = 3;</code>
-       * @param value The d to set.
+       * <code>required bytes data = 3;</code>
+       * @param value The data to set.
        * @return This builder for chaining.
        */
-      public Builder setD(com.google.protobuf.ByteString value) {
+      public Builder setData(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000004;
-        d_ = value;
+        data_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required bytes d = 3;</code>
+       * <code>required bytes data = 3;</code>
        * @return This builder for chaining.
        */
-      public Builder clearD() {
+      public Builder clearData() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        d_ = getDefaultInstance().getD();
+        data_ = getDefaultInstance().getData();
         onChanged();
         return this;
       }
@@ -899,19 +899,19 @@ public final class Comunicacao {
         getErrorBytes();
 
     /**
-     * <code>required .VTripla v = 2;</code>
-     * @return Whether the v field is set.
+     * <code>required .VTripla value = 2;</code>
+     * @return Whether the value field is set.
      */
-    boolean hasV();
+    boolean hasValue();
     /**
-     * <code>required .VTripla v = 2;</code>
-     * @return The v.
+     * <code>required .VTripla value = 2;</code>
+     * @return The value.
      */
-    com.ufu.sd.dbnosql.controller.Comunicacao.VTripla getV();
+    com.ufu.sd.dbnosql.controller.Comunicacao.VTripla getValue();
     /**
-     * <code>required .VTripla v = 2;</code>
+     * <code>required .VTripla value = 2;</code>
      */
-    com.ufu.sd.dbnosql.controller.Comunicacao.VTriplaOrBuilder getVOrBuilder();
+    com.ufu.sd.dbnosql.controller.Comunicacao.VTriplaOrBuilder getValueOrBuilder();
   }
   /**
    * Protobuf type {@code Reply}
@@ -969,12 +969,12 @@ public final class Comunicacao {
             case 18: {
               com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.Builder subBuilder = null;
               if (((bitField0_ & 0x00000002) != 0)) {
-                subBuilder = v_.toBuilder();
+                subBuilder = value_.toBuilder();
               }
-              v_ = input.readMessage(com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.PARSER, extensionRegistry);
+              value_ = input.readMessage(com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.PARSER, extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(v_);
-                v_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(value_);
+                value_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00000002;
               break;
@@ -1060,30 +1060,30 @@ public final class Comunicacao {
       }
     }
 
-    public static final int V_FIELD_NUMBER = 2;
-    private com.ufu.sd.dbnosql.controller.Comunicacao.VTripla v_;
+    public static final int VALUE_FIELD_NUMBER = 2;
+    private com.ufu.sd.dbnosql.controller.Comunicacao.VTripla value_;
     /**
-     * <code>required .VTripla v = 2;</code>
-     * @return Whether the v field is set.
+     * <code>required .VTripla value = 2;</code>
+     * @return Whether the value field is set.
      */
     @java.lang.Override
-    public boolean hasV() {
+    public boolean hasValue() {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>required .VTripla v = 2;</code>
-     * @return The v.
+     * <code>required .VTripla value = 2;</code>
+     * @return The value.
      */
     @java.lang.Override
-    public com.ufu.sd.dbnosql.controller.Comunicacao.VTripla getV() {
-      return v_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.getDefaultInstance() : v_;
+    public com.ufu.sd.dbnosql.controller.Comunicacao.VTripla getValue() {
+      return value_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.getDefaultInstance() : value_;
     }
     /**
-     * <code>required .VTripla v = 2;</code>
+     * <code>required .VTripla value = 2;</code>
      */
     @java.lang.Override
-    public com.ufu.sd.dbnosql.controller.Comunicacao.VTriplaOrBuilder getVOrBuilder() {
-      return v_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.getDefaultInstance() : v_;
+    public com.ufu.sd.dbnosql.controller.Comunicacao.VTriplaOrBuilder getValueOrBuilder() {
+      return value_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.getDefaultInstance() : value_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1097,11 +1097,11 @@ public final class Comunicacao {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasV()) {
+      if (!hasValue()) {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!getV().isInitialized()) {
+      if (!getValue().isInitialized()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -1116,7 +1116,7 @@ public final class Comunicacao {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, error_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        output.writeMessage(2, getV());
+        output.writeMessage(2, getValue());
       }
       unknownFields.writeTo(output);
     }
@@ -1132,7 +1132,7 @@ public final class Comunicacao {
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getV());
+          .computeMessageSize(2, getValue());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1154,10 +1154,10 @@ public final class Comunicacao {
         if (!getError()
             .equals(other.getError())) return false;
       }
-      if (hasV() != other.hasV()) return false;
-      if (hasV()) {
-        if (!getV()
-            .equals(other.getV())) return false;
+      if (hasValue() != other.hasValue()) return false;
+      if (hasValue()) {
+        if (!getValue()
+            .equals(other.getValue())) return false;
       }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
@@ -1174,9 +1174,9 @@ public final class Comunicacao {
         hash = (37 * hash) + ERROR_FIELD_NUMBER;
         hash = (53 * hash) + getError().hashCode();
       }
-      if (hasV()) {
-        hash = (37 * hash) + V_FIELD_NUMBER;
-        hash = (53 * hash) + getV().hashCode();
+      if (hasValue()) {
+        hash = (37 * hash) + VALUE_FIELD_NUMBER;
+        hash = (53 * hash) + getValue().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -1306,7 +1306,7 @@ public final class Comunicacao {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getVFieldBuilder();
+          getValueFieldBuilder();
         }
       }
       @java.lang.Override
@@ -1314,10 +1314,10 @@ public final class Comunicacao {
         super.clear();
         error_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
-        if (vBuilder_ == null) {
-          v_ = null;
+        if (valueBuilder_ == null) {
+          value_ = null;
         } else {
-          vBuilder_.clear();
+          valueBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
@@ -1353,10 +1353,10 @@ public final class Comunicacao {
         }
         result.error_ = error_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
-          if (vBuilder_ == null) {
-            result.v_ = v_;
+          if (valueBuilder_ == null) {
+            result.value_ = value_;
           } else {
-            result.v_ = vBuilder_.build();
+            result.value_ = valueBuilder_.build();
           }
           to_bitField0_ |= 0x00000002;
         }
@@ -1414,8 +1414,8 @@ public final class Comunicacao {
           error_ = other.error_;
           onChanged();
         }
-        if (other.hasV()) {
-          mergeV(other.getV());
+        if (other.hasValue()) {
+          mergeValue(other.getValue());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1427,10 +1427,10 @@ public final class Comunicacao {
         if (!hasError()) {
           return false;
         }
-        if (!hasV()) {
+        if (!hasValue()) {
           return false;
         }
-        if (!getV().isInitialized()) {
+        if (!getValue().isInitialized()) {
           return false;
         }
         return true;
@@ -1540,124 +1540,124 @@ public final class Comunicacao {
         return this;
       }
 
-      private com.ufu.sd.dbnosql.controller.Comunicacao.VTripla v_;
+      private com.ufu.sd.dbnosql.controller.Comunicacao.VTripla value_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.ufu.sd.dbnosql.controller.Comunicacao.VTripla, com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.Builder, com.ufu.sd.dbnosql.controller.Comunicacao.VTriplaOrBuilder> vBuilder_;
+          com.ufu.sd.dbnosql.controller.Comunicacao.VTripla, com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.Builder, com.ufu.sd.dbnosql.controller.Comunicacao.VTriplaOrBuilder> valueBuilder_;
       /**
-       * <code>required .VTripla v = 2;</code>
-       * @return Whether the v field is set.
+       * <code>required .VTripla value = 2;</code>
+       * @return Whether the value field is set.
        */
-      public boolean hasV() {
+      public boolean hasValue() {
         return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <code>required .VTripla v = 2;</code>
-       * @return The v.
+       * <code>required .VTripla value = 2;</code>
+       * @return The value.
        */
-      public com.ufu.sd.dbnosql.controller.Comunicacao.VTripla getV() {
-        if (vBuilder_ == null) {
-          return v_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.getDefaultInstance() : v_;
+      public com.ufu.sd.dbnosql.controller.Comunicacao.VTripla getValue() {
+        if (valueBuilder_ == null) {
+          return value_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.getDefaultInstance() : value_;
         } else {
-          return vBuilder_.getMessage();
+          return valueBuilder_.getMessage();
         }
       }
       /**
-       * <code>required .VTripla v = 2;</code>
+       * <code>required .VTripla value = 2;</code>
        */
-      public Builder setV(com.ufu.sd.dbnosql.controller.Comunicacao.VTripla value) {
-        if (vBuilder_ == null) {
+      public Builder setValue(com.ufu.sd.dbnosql.controller.Comunicacao.VTripla value) {
+        if (valueBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          v_ = value;
+          value_ = value;
           onChanged();
         } else {
-          vBuilder_.setMessage(value);
+          valueBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <code>required .VTripla v = 2;</code>
+       * <code>required .VTripla value = 2;</code>
        */
-      public Builder setV(
+      public Builder setValue(
           com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.Builder builderForValue) {
-        if (vBuilder_ == null) {
-          v_ = builderForValue.build();
+        if (valueBuilder_ == null) {
+          value_ = builderForValue.build();
           onChanged();
         } else {
-          vBuilder_.setMessage(builderForValue.build());
+          valueBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <code>required .VTripla v = 2;</code>
+       * <code>required .VTripla value = 2;</code>
        */
-      public Builder mergeV(com.ufu.sd.dbnosql.controller.Comunicacao.VTripla value) {
-        if (vBuilder_ == null) {
+      public Builder mergeValue(com.ufu.sd.dbnosql.controller.Comunicacao.VTripla value) {
+        if (valueBuilder_ == null) {
           if (((bitField0_ & 0x00000002) != 0) &&
-              v_ != null &&
-              v_ != com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.getDefaultInstance()) {
-            v_ =
-              com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.newBuilder(v_).mergeFrom(value).buildPartial();
+              value_ != null &&
+              value_ != com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.getDefaultInstance()) {
+            value_ =
+              com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.newBuilder(value_).mergeFrom(value).buildPartial();
           } else {
-            v_ = value;
+            value_ = value;
           }
           onChanged();
         } else {
-          vBuilder_.mergeFrom(value);
+          valueBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <code>required .VTripla v = 2;</code>
+       * <code>required .VTripla value = 2;</code>
        */
-      public Builder clearV() {
-        if (vBuilder_ == null) {
-          v_ = null;
+      public Builder clearValue() {
+        if (valueBuilder_ == null) {
+          value_ = null;
           onChanged();
         } else {
-          vBuilder_.clear();
+          valueBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
       /**
-       * <code>required .VTripla v = 2;</code>
+       * <code>required .VTripla value = 2;</code>
        */
-      public com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.Builder getVBuilder() {
+      public com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.Builder getValueBuilder() {
         bitField0_ |= 0x00000002;
         onChanged();
-        return getVFieldBuilder().getBuilder();
+        return getValueFieldBuilder().getBuilder();
       }
       /**
-       * <code>required .VTripla v = 2;</code>
+       * <code>required .VTripla value = 2;</code>
        */
-      public com.ufu.sd.dbnosql.controller.Comunicacao.VTriplaOrBuilder getVOrBuilder() {
-        if (vBuilder_ != null) {
-          return vBuilder_.getMessageOrBuilder();
+      public com.ufu.sd.dbnosql.controller.Comunicacao.VTriplaOrBuilder getValueOrBuilder() {
+        if (valueBuilder_ != null) {
+          return valueBuilder_.getMessageOrBuilder();
         } else {
-          return v_ == null ?
-              com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.getDefaultInstance() : v_;
+          return value_ == null ?
+              com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.getDefaultInstance() : value_;
         }
       }
       /**
-       * <code>required .VTripla v = 2;</code>
+       * <code>required .VTripla value = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.ufu.sd.dbnosql.controller.Comunicacao.VTripla, com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.Builder, com.ufu.sd.dbnosql.controller.Comunicacao.VTriplaOrBuilder> 
-          getVFieldBuilder() {
-        if (vBuilder_ == null) {
-          vBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+          getValueFieldBuilder() {
+        if (valueBuilder_ == null) {
+          valueBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.ufu.sd.dbnosql.controller.Comunicacao.VTripla, com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.Builder, com.ufu.sd.dbnosql.controller.Comunicacao.VTriplaOrBuilder>(
-                  getV(),
+                  getValue(),
                   getParentForChildren(),
                   isClean());
-          v_ = null;
+          value_ = null;
         }
-        return vBuilder_;
+        return valueBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -1717,19 +1717,19 @@ public final class Comunicacao {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required .BigInteger k = 1;</code>
-     * @return Whether the k field is set.
+     * <code>required .BigInteger key = 1;</code>
+     * @return Whether the key field is set.
      */
-    boolean hasK();
+    boolean hasKey();
     /**
-     * <code>required .BigInteger k = 1;</code>
-     * @return The k.
+     * <code>required .BigInteger key = 1;</code>
+     * @return The key.
      */
-    com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger getK();
+    com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger getKey();
     /**
-     * <code>required .BigInteger k = 1;</code>
+     * <code>required .BigInteger key = 1;</code>
      */
-    com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder getKOrBuilder();
+    com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder getKeyOrBuilder();
   }
   /**
    * Protobuf type {@code GetRequest}
@@ -1780,12 +1780,12 @@ public final class Comunicacao {
             case 10: {
               com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) != 0)) {
-                subBuilder = k_.toBuilder();
+                subBuilder = key_.toBuilder();
               }
-              k_ = input.readMessage(com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.PARSER, extensionRegistry);
+              key_ = input.readMessage(com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.PARSER, extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(k_);
-                k_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(key_);
+                key_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00000001;
               break;
@@ -1823,30 +1823,30 @@ public final class Comunicacao {
     }
 
     private int bitField0_;
-    public static final int K_FIELD_NUMBER = 1;
-    private com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger k_;
+    public static final int KEY_FIELD_NUMBER = 1;
+    private com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger key_;
     /**
-     * <code>required .BigInteger k = 1;</code>
-     * @return Whether the k field is set.
+     * <code>required .BigInteger key = 1;</code>
+     * @return Whether the key field is set.
      */
     @java.lang.Override
-    public boolean hasK() {
+    public boolean hasKey() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>required .BigInteger k = 1;</code>
-     * @return The k.
+     * <code>required .BigInteger key = 1;</code>
+     * @return The key.
      */
     @java.lang.Override
-    public com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger getK() {
-      return k_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : k_;
+    public com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger getKey() {
+      return key_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : key_;
     }
     /**
-     * <code>required .BigInteger k = 1;</code>
+     * <code>required .BigInteger key = 1;</code>
      */
     @java.lang.Override
-    public com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder getKOrBuilder() {
-      return k_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : k_;
+    public com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder getKeyOrBuilder() {
+      return key_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : key_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1856,11 +1856,11 @@ public final class Comunicacao {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasK()) {
+      if (!hasKey()) {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!getK().isInitialized()) {
+      if (!getKey().isInitialized()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -1872,7 +1872,7 @@ public final class Comunicacao {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeMessage(1, getK());
+        output.writeMessage(1, getKey());
       }
       unknownFields.writeTo(output);
     }
@@ -1885,7 +1885,7 @@ public final class Comunicacao {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getK());
+          .computeMessageSize(1, getKey());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1902,10 +1902,10 @@ public final class Comunicacao {
       }
       com.ufu.sd.dbnosql.controller.Comunicacao.GetRequest other = (com.ufu.sd.dbnosql.controller.Comunicacao.GetRequest) obj;
 
-      if (hasK() != other.hasK()) return false;
-      if (hasK()) {
-        if (!getK()
-            .equals(other.getK())) return false;
+      if (hasKey() != other.hasKey()) return false;
+      if (hasKey()) {
+        if (!getKey()
+            .equals(other.getKey())) return false;
       }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
@@ -1918,9 +1918,9 @@ public final class Comunicacao {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasK()) {
-        hash = (37 * hash) + K_FIELD_NUMBER;
-        hash = (53 * hash) + getK().hashCode();
+      if (hasKey()) {
+        hash = (37 * hash) + KEY_FIELD_NUMBER;
+        hash = (53 * hash) + getKey().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -2050,16 +2050,16 @@ public final class Comunicacao {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getKFieldBuilder();
+          getKeyFieldBuilder();
         }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (kBuilder_ == null) {
-          k_ = null;
+        if (keyBuilder_ == null) {
+          key_ = null;
         } else {
-          kBuilder_.clear();
+          keyBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
@@ -2091,10 +2091,10 @@ public final class Comunicacao {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          if (kBuilder_ == null) {
-            result.k_ = k_;
+          if (keyBuilder_ == null) {
+            result.key_ = key_;
           } else {
-            result.k_ = kBuilder_.build();
+            result.key_ = keyBuilder_.build();
           }
           to_bitField0_ |= 0x00000001;
         }
@@ -2147,8 +2147,8 @@ public final class Comunicacao {
 
       public Builder mergeFrom(com.ufu.sd.dbnosql.controller.Comunicacao.GetRequest other) {
         if (other == com.ufu.sd.dbnosql.controller.Comunicacao.GetRequest.getDefaultInstance()) return this;
-        if (other.hasK()) {
-          mergeK(other.getK());
+        if (other.hasKey()) {
+          mergeKey(other.getKey());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2157,10 +2157,10 @@ public final class Comunicacao {
 
       @java.lang.Override
       public final boolean isInitialized() {
-        if (!hasK()) {
+        if (!hasKey()) {
           return false;
         }
-        if (!getK().isInitialized()) {
+        if (!getKey().isInitialized()) {
           return false;
         }
         return true;
@@ -2186,124 +2186,124 @@ public final class Comunicacao {
       }
       private int bitField0_;
 
-      private com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger k_;
+      private com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger key_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger, com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder, com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder> kBuilder_;
+          com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger, com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder, com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder> keyBuilder_;
       /**
-       * <code>required .BigInteger k = 1;</code>
-       * @return Whether the k field is set.
+       * <code>required .BigInteger key = 1;</code>
+       * @return Whether the key field is set.
        */
-      public boolean hasK() {
+      public boolean hasKey() {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
-       * @return The k.
+       * <code>required .BigInteger key = 1;</code>
+       * @return The key.
        */
-      public com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger getK() {
-        if (kBuilder_ == null) {
-          return k_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : k_;
+      public com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger getKey() {
+        if (keyBuilder_ == null) {
+          return key_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : key_;
         } else {
-          return kBuilder_.getMessage();
+          return keyBuilder_.getMessage();
         }
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
-      public Builder setK(com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger value) {
-        if (kBuilder_ == null) {
+      public Builder setKey(com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger value) {
+        if (keyBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          k_ = value;
+          key_ = value;
           onChanged();
         } else {
-          kBuilder_.setMessage(value);
+          keyBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000001;
         return this;
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
-      public Builder setK(
+      public Builder setKey(
           com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder builderForValue) {
-        if (kBuilder_ == null) {
-          k_ = builderForValue.build();
+        if (keyBuilder_ == null) {
+          key_ = builderForValue.build();
           onChanged();
         } else {
-          kBuilder_.setMessage(builderForValue.build());
+          keyBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000001;
         return this;
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
-      public Builder mergeK(com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger value) {
-        if (kBuilder_ == null) {
+      public Builder mergeKey(com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger value) {
+        if (keyBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0) &&
-              k_ != null &&
-              k_ != com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance()) {
-            k_ =
-              com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.newBuilder(k_).mergeFrom(value).buildPartial();
+              key_ != null &&
+              key_ != com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance()) {
+            key_ =
+              com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.newBuilder(key_).mergeFrom(value).buildPartial();
           } else {
-            k_ = value;
+            key_ = value;
           }
           onChanged();
         } else {
-          kBuilder_.mergeFrom(value);
+          keyBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000001;
         return this;
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
-      public Builder clearK() {
-        if (kBuilder_ == null) {
-          k_ = null;
+      public Builder clearKey() {
+        if (keyBuilder_ == null) {
+          key_ = null;
           onChanged();
         } else {
-          kBuilder_.clear();
+          keyBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
-      public com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder getKBuilder() {
+      public com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder getKeyBuilder() {
         bitField0_ |= 0x00000001;
         onChanged();
-        return getKFieldBuilder().getBuilder();
+        return getKeyFieldBuilder().getBuilder();
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
-      public com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder getKOrBuilder() {
-        if (kBuilder_ != null) {
-          return kBuilder_.getMessageOrBuilder();
+      public com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder getKeyOrBuilder() {
+        if (keyBuilder_ != null) {
+          return keyBuilder_.getMessageOrBuilder();
         } else {
-          return k_ == null ?
-              com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : k_;
+          return key_ == null ?
+              com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : key_;
         }
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger, com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder, com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder> 
-          getKFieldBuilder() {
-        if (kBuilder_ == null) {
-          kBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+          getKeyFieldBuilder() {
+        if (keyBuilder_ == null) {
+          keyBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger, com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder, com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder>(
-                  getK(),
+                  getKey(),
                   getParentForChildren(),
                   isClean());
-          k_ = null;
+          key_ = null;
         }
-        return kBuilder_;
+        return keyBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -2363,19 +2363,19 @@ public final class Comunicacao {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required .BigInteger k = 1;</code>
-     * @return Whether the k field is set.
+     * <code>required .BigInteger key = 1;</code>
+     * @return Whether the key field is set.
      */
-    boolean hasK();
+    boolean hasKey();
     /**
-     * <code>required .BigInteger k = 1;</code>
-     * @return The k.
+     * <code>required .BigInteger key = 1;</code>
+     * @return The key.
      */
-    com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger getK();
+    com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger getKey();
     /**
-     * <code>required .BigInteger k = 1;</code>
+     * <code>required .BigInteger key = 1;</code>
      */
-    com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder getKOrBuilder();
+    com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder getKeyOrBuilder();
   }
   /**
    * Protobuf type {@code DelRequest}
@@ -2426,12 +2426,12 @@ public final class Comunicacao {
             case 10: {
               com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) != 0)) {
-                subBuilder = k_.toBuilder();
+                subBuilder = key_.toBuilder();
               }
-              k_ = input.readMessage(com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.PARSER, extensionRegistry);
+              key_ = input.readMessage(com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.PARSER, extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(k_);
-                k_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(key_);
+                key_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00000001;
               break;
@@ -2469,30 +2469,30 @@ public final class Comunicacao {
     }
 
     private int bitField0_;
-    public static final int K_FIELD_NUMBER = 1;
-    private com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger k_;
+    public static final int KEY_FIELD_NUMBER = 1;
+    private com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger key_;
     /**
-     * <code>required .BigInteger k = 1;</code>
-     * @return Whether the k field is set.
+     * <code>required .BigInteger key = 1;</code>
+     * @return Whether the key field is set.
      */
     @java.lang.Override
-    public boolean hasK() {
+    public boolean hasKey() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>required .BigInteger k = 1;</code>
-     * @return The k.
+     * <code>required .BigInteger key = 1;</code>
+     * @return The key.
      */
     @java.lang.Override
-    public com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger getK() {
-      return k_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : k_;
+    public com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger getKey() {
+      return key_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : key_;
     }
     /**
-     * <code>required .BigInteger k = 1;</code>
+     * <code>required .BigInteger key = 1;</code>
      */
     @java.lang.Override
-    public com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder getKOrBuilder() {
-      return k_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : k_;
+    public com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder getKeyOrBuilder() {
+      return key_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : key_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2502,11 +2502,11 @@ public final class Comunicacao {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasK()) {
+      if (!hasKey()) {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!getK().isInitialized()) {
+      if (!getKey().isInitialized()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -2518,7 +2518,7 @@ public final class Comunicacao {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeMessage(1, getK());
+        output.writeMessage(1, getKey());
       }
       unknownFields.writeTo(output);
     }
@@ -2531,7 +2531,7 @@ public final class Comunicacao {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getK());
+          .computeMessageSize(1, getKey());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2548,10 +2548,10 @@ public final class Comunicacao {
       }
       com.ufu.sd.dbnosql.controller.Comunicacao.DelRequest other = (com.ufu.sd.dbnosql.controller.Comunicacao.DelRequest) obj;
 
-      if (hasK() != other.hasK()) return false;
-      if (hasK()) {
-        if (!getK()
-            .equals(other.getK())) return false;
+      if (hasKey() != other.hasKey()) return false;
+      if (hasKey()) {
+        if (!getKey()
+            .equals(other.getKey())) return false;
       }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
@@ -2564,9 +2564,9 @@ public final class Comunicacao {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasK()) {
-        hash = (37 * hash) + K_FIELD_NUMBER;
-        hash = (53 * hash) + getK().hashCode();
+      if (hasKey()) {
+        hash = (37 * hash) + KEY_FIELD_NUMBER;
+        hash = (53 * hash) + getKey().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -2696,16 +2696,16 @@ public final class Comunicacao {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getKFieldBuilder();
+          getKeyFieldBuilder();
         }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (kBuilder_ == null) {
-          k_ = null;
+        if (keyBuilder_ == null) {
+          key_ = null;
         } else {
-          kBuilder_.clear();
+          keyBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
@@ -2737,10 +2737,10 @@ public final class Comunicacao {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          if (kBuilder_ == null) {
-            result.k_ = k_;
+          if (keyBuilder_ == null) {
+            result.key_ = key_;
           } else {
-            result.k_ = kBuilder_.build();
+            result.key_ = keyBuilder_.build();
           }
           to_bitField0_ |= 0x00000001;
         }
@@ -2793,8 +2793,8 @@ public final class Comunicacao {
 
       public Builder mergeFrom(com.ufu.sd.dbnosql.controller.Comunicacao.DelRequest other) {
         if (other == com.ufu.sd.dbnosql.controller.Comunicacao.DelRequest.getDefaultInstance()) return this;
-        if (other.hasK()) {
-          mergeK(other.getK());
+        if (other.hasKey()) {
+          mergeKey(other.getKey());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2803,10 +2803,10 @@ public final class Comunicacao {
 
       @java.lang.Override
       public final boolean isInitialized() {
-        if (!hasK()) {
+        if (!hasKey()) {
           return false;
         }
-        if (!getK().isInitialized()) {
+        if (!getKey().isInitialized()) {
           return false;
         }
         return true;
@@ -2832,124 +2832,124 @@ public final class Comunicacao {
       }
       private int bitField0_;
 
-      private com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger k_;
+      private com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger key_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger, com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder, com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder> kBuilder_;
+          com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger, com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder, com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder> keyBuilder_;
       /**
-       * <code>required .BigInteger k = 1;</code>
-       * @return Whether the k field is set.
+       * <code>required .BigInteger key = 1;</code>
+       * @return Whether the key field is set.
        */
-      public boolean hasK() {
+      public boolean hasKey() {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
-       * @return The k.
+       * <code>required .BigInteger key = 1;</code>
+       * @return The key.
        */
-      public com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger getK() {
-        if (kBuilder_ == null) {
-          return k_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : k_;
+      public com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger getKey() {
+        if (keyBuilder_ == null) {
+          return key_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : key_;
         } else {
-          return kBuilder_.getMessage();
+          return keyBuilder_.getMessage();
         }
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
-      public Builder setK(com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger value) {
-        if (kBuilder_ == null) {
+      public Builder setKey(com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger value) {
+        if (keyBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          k_ = value;
+          key_ = value;
           onChanged();
         } else {
-          kBuilder_.setMessage(value);
+          keyBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000001;
         return this;
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
-      public Builder setK(
+      public Builder setKey(
           com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder builderForValue) {
-        if (kBuilder_ == null) {
-          k_ = builderForValue.build();
+        if (keyBuilder_ == null) {
+          key_ = builderForValue.build();
           onChanged();
         } else {
-          kBuilder_.setMessage(builderForValue.build());
+          keyBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000001;
         return this;
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
-      public Builder mergeK(com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger value) {
-        if (kBuilder_ == null) {
+      public Builder mergeKey(com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger value) {
+        if (keyBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0) &&
-              k_ != null &&
-              k_ != com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance()) {
-            k_ =
-              com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.newBuilder(k_).mergeFrom(value).buildPartial();
+              key_ != null &&
+              key_ != com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance()) {
+            key_ =
+              com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.newBuilder(key_).mergeFrom(value).buildPartial();
           } else {
-            k_ = value;
+            key_ = value;
           }
           onChanged();
         } else {
-          kBuilder_.mergeFrom(value);
+          keyBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000001;
         return this;
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
-      public Builder clearK() {
-        if (kBuilder_ == null) {
-          k_ = null;
+      public Builder clearKey() {
+        if (keyBuilder_ == null) {
+          key_ = null;
           onChanged();
         } else {
-          kBuilder_.clear();
+          keyBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
-      public com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder getKBuilder() {
+      public com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder getKeyBuilder() {
         bitField0_ |= 0x00000001;
         onChanged();
-        return getKFieldBuilder().getBuilder();
+        return getKeyFieldBuilder().getBuilder();
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
-      public com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder getKOrBuilder() {
-        if (kBuilder_ != null) {
-          return kBuilder_.getMessageOrBuilder();
+      public com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder getKeyOrBuilder() {
+        if (keyBuilder_ != null) {
+          return keyBuilder_.getMessageOrBuilder();
         } else {
-          return k_ == null ?
-              com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : k_;
+          return key_ == null ?
+              com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : key_;
         }
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger, com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder, com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder> 
-          getKFieldBuilder() {
-        if (kBuilder_ == null) {
-          kBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+          getKeyFieldBuilder() {
+        if (keyBuilder_ == null) {
+          keyBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger, com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder, com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder>(
-                  getK(),
+                  getKey(),
                   getParentForChildren(),
                   isClean());
-          k_ = null;
+          key_ = null;
         }
-        return kBuilder_;
+        return keyBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -3009,30 +3009,30 @@ public final class Comunicacao {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required .BigInteger k = 1;</code>
-     * @return Whether the k field is set.
+     * <code>required .BigInteger key = 1;</code>
+     * @return Whether the key field is set.
      */
-    boolean hasK();
+    boolean hasKey();
     /**
-     * <code>required .BigInteger k = 1;</code>
-     * @return The k.
+     * <code>required .BigInteger key = 1;</code>
+     * @return The key.
      */
-    com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger getK();
+    com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger getKey();
     /**
-     * <code>required .BigInteger k = 1;</code>
+     * <code>required .BigInteger key = 1;</code>
      */
-    com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder getKOrBuilder();
+    com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder getKeyOrBuilder();
 
     /**
-     * <code>required int64 vers = 2;</code>
-     * @return Whether the vers field is set.
+     * <code>required int64 version = 2;</code>
+     * @return Whether the version field is set.
      */
-    boolean hasVers();
+    boolean hasVersion();
     /**
-     * <code>required int64 vers = 2;</code>
-     * @return The vers.
+     * <code>required int64 version = 2;</code>
+     * @return The version.
      */
-    long getVers();
+    long getVersion();
   }
   /**
    * Protobuf type {@code DelRequestVers}
@@ -3083,19 +3083,19 @@ public final class Comunicacao {
             case 10: {
               com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) != 0)) {
-                subBuilder = k_.toBuilder();
+                subBuilder = key_.toBuilder();
               }
-              k_ = input.readMessage(com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.PARSER, extensionRegistry);
+              key_ = input.readMessage(com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.PARSER, extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(k_);
-                k_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(key_);
+                key_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00000001;
               break;
             }
             case 16: {
               bitField0_ |= 0x00000002;
-              vers_ = input.readInt64();
+              version_ = input.readInt64();
               break;
             }
             default: {
@@ -3131,49 +3131,49 @@ public final class Comunicacao {
     }
 
     private int bitField0_;
-    public static final int K_FIELD_NUMBER = 1;
-    private com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger k_;
+    public static final int KEY_FIELD_NUMBER = 1;
+    private com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger key_;
     /**
-     * <code>required .BigInteger k = 1;</code>
-     * @return Whether the k field is set.
+     * <code>required .BigInteger key = 1;</code>
+     * @return Whether the key field is set.
      */
     @java.lang.Override
-    public boolean hasK() {
+    public boolean hasKey() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>required .BigInteger k = 1;</code>
-     * @return The k.
+     * <code>required .BigInteger key = 1;</code>
+     * @return The key.
      */
     @java.lang.Override
-    public com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger getK() {
-      return k_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : k_;
+    public com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger getKey() {
+      return key_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : key_;
     }
     /**
-     * <code>required .BigInteger k = 1;</code>
+     * <code>required .BigInteger key = 1;</code>
      */
     @java.lang.Override
-    public com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder getKOrBuilder() {
-      return k_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : k_;
+    public com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder getKeyOrBuilder() {
+      return key_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : key_;
     }
 
-    public static final int VERS_FIELD_NUMBER = 2;
-    private long vers_;
+    public static final int VERSION_FIELD_NUMBER = 2;
+    private long version_;
     /**
-     * <code>required int64 vers = 2;</code>
-     * @return Whether the vers field is set.
+     * <code>required int64 version = 2;</code>
+     * @return Whether the version field is set.
      */
     @java.lang.Override
-    public boolean hasVers() {
+    public boolean hasVersion() {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>required int64 vers = 2;</code>
-     * @return The vers.
+     * <code>required int64 version = 2;</code>
+     * @return The version.
      */
     @java.lang.Override
-    public long getVers() {
-      return vers_;
+    public long getVersion() {
+      return version_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -3183,15 +3183,15 @@ public final class Comunicacao {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasK()) {
+      if (!hasKey()) {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasVers()) {
+      if (!hasVersion()) {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!getK().isInitialized()) {
+      if (!getKey().isInitialized()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -3203,10 +3203,10 @@ public final class Comunicacao {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeMessage(1, getK());
+        output.writeMessage(1, getKey());
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        output.writeInt64(2, vers_);
+        output.writeInt64(2, version_);
       }
       unknownFields.writeTo(output);
     }
@@ -3219,11 +3219,11 @@ public final class Comunicacao {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getK());
+          .computeMessageSize(1, getKey());
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(2, vers_);
+          .computeInt64Size(2, version_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3240,15 +3240,15 @@ public final class Comunicacao {
       }
       com.ufu.sd.dbnosql.controller.Comunicacao.DelRequestVers other = (com.ufu.sd.dbnosql.controller.Comunicacao.DelRequestVers) obj;
 
-      if (hasK() != other.hasK()) return false;
-      if (hasK()) {
-        if (!getK()
-            .equals(other.getK())) return false;
+      if (hasKey() != other.hasKey()) return false;
+      if (hasKey()) {
+        if (!getKey()
+            .equals(other.getKey())) return false;
       }
-      if (hasVers() != other.hasVers()) return false;
-      if (hasVers()) {
-        if (getVers()
-            != other.getVers()) return false;
+      if (hasVersion() != other.hasVersion()) return false;
+      if (hasVersion()) {
+        if (getVersion()
+            != other.getVersion()) return false;
       }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
@@ -3261,14 +3261,14 @@ public final class Comunicacao {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasK()) {
-        hash = (37 * hash) + K_FIELD_NUMBER;
-        hash = (53 * hash) + getK().hashCode();
+      if (hasKey()) {
+        hash = (37 * hash) + KEY_FIELD_NUMBER;
+        hash = (53 * hash) + getKey().hashCode();
       }
-      if (hasVers()) {
-        hash = (37 * hash) + VERS_FIELD_NUMBER;
+      if (hasVersion()) {
+        hash = (37 * hash) + VERSION_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getVers());
+            getVersion());
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -3398,19 +3398,19 @@ public final class Comunicacao {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getKFieldBuilder();
+          getKeyFieldBuilder();
         }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (kBuilder_ == null) {
-          k_ = null;
+        if (keyBuilder_ == null) {
+          key_ = null;
         } else {
-          kBuilder_.clear();
+          keyBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
-        vers_ = 0L;
+        version_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
@@ -3441,15 +3441,15 @@ public final class Comunicacao {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          if (kBuilder_ == null) {
-            result.k_ = k_;
+          if (keyBuilder_ == null) {
+            result.key_ = key_;
           } else {
-            result.k_ = kBuilder_.build();
+            result.key_ = keyBuilder_.build();
           }
           to_bitField0_ |= 0x00000001;
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.vers_ = vers_;
+          result.version_ = version_;
           to_bitField0_ |= 0x00000002;
         }
         result.bitField0_ = to_bitField0_;
@@ -3501,11 +3501,11 @@ public final class Comunicacao {
 
       public Builder mergeFrom(com.ufu.sd.dbnosql.controller.Comunicacao.DelRequestVers other) {
         if (other == com.ufu.sd.dbnosql.controller.Comunicacao.DelRequestVers.getDefaultInstance()) return this;
-        if (other.hasK()) {
-          mergeK(other.getK());
+        if (other.hasKey()) {
+          mergeKey(other.getKey());
         }
-        if (other.hasVers()) {
-          setVers(other.getVers());
+        if (other.hasVersion()) {
+          setVersion(other.getVersion());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -3514,13 +3514,13 @@ public final class Comunicacao {
 
       @java.lang.Override
       public final boolean isInitialized() {
-        if (!hasK()) {
+        if (!hasKey()) {
           return false;
         }
-        if (!hasVers()) {
+        if (!hasVersion()) {
           return false;
         }
-        if (!getK().isInitialized()) {
+        if (!getKey().isInitialized()) {
           return false;
         }
         return true;
@@ -3546,161 +3546,161 @@ public final class Comunicacao {
       }
       private int bitField0_;
 
-      private com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger k_;
+      private com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger key_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger, com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder, com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder> kBuilder_;
+          com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger, com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder, com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder> keyBuilder_;
       /**
-       * <code>required .BigInteger k = 1;</code>
-       * @return Whether the k field is set.
+       * <code>required .BigInteger key = 1;</code>
+       * @return Whether the key field is set.
        */
-      public boolean hasK() {
+      public boolean hasKey() {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
-       * @return The k.
+       * <code>required .BigInteger key = 1;</code>
+       * @return The key.
        */
-      public com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger getK() {
-        if (kBuilder_ == null) {
-          return k_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : k_;
+      public com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger getKey() {
+        if (keyBuilder_ == null) {
+          return key_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : key_;
         } else {
-          return kBuilder_.getMessage();
+          return keyBuilder_.getMessage();
         }
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
-      public Builder setK(com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger value) {
-        if (kBuilder_ == null) {
+      public Builder setKey(com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger value) {
+        if (keyBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          k_ = value;
+          key_ = value;
           onChanged();
         } else {
-          kBuilder_.setMessage(value);
+          keyBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000001;
         return this;
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
-      public Builder setK(
+      public Builder setKey(
           com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder builderForValue) {
-        if (kBuilder_ == null) {
-          k_ = builderForValue.build();
+        if (keyBuilder_ == null) {
+          key_ = builderForValue.build();
           onChanged();
         } else {
-          kBuilder_.setMessage(builderForValue.build());
+          keyBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000001;
         return this;
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
-      public Builder mergeK(com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger value) {
-        if (kBuilder_ == null) {
+      public Builder mergeKey(com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger value) {
+        if (keyBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0) &&
-              k_ != null &&
-              k_ != com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance()) {
-            k_ =
-              com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.newBuilder(k_).mergeFrom(value).buildPartial();
+              key_ != null &&
+              key_ != com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance()) {
+            key_ =
+              com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.newBuilder(key_).mergeFrom(value).buildPartial();
           } else {
-            k_ = value;
+            key_ = value;
           }
           onChanged();
         } else {
-          kBuilder_.mergeFrom(value);
+          keyBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000001;
         return this;
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
-      public Builder clearK() {
-        if (kBuilder_ == null) {
-          k_ = null;
+      public Builder clearKey() {
+        if (keyBuilder_ == null) {
+          key_ = null;
           onChanged();
         } else {
-          kBuilder_.clear();
+          keyBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
-      public com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder getKBuilder() {
+      public com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder getKeyBuilder() {
         bitField0_ |= 0x00000001;
         onChanged();
-        return getKFieldBuilder().getBuilder();
+        return getKeyFieldBuilder().getBuilder();
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
-      public com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder getKOrBuilder() {
-        if (kBuilder_ != null) {
-          return kBuilder_.getMessageOrBuilder();
+      public com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder getKeyOrBuilder() {
+        if (keyBuilder_ != null) {
+          return keyBuilder_.getMessageOrBuilder();
         } else {
-          return k_ == null ?
-              com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : k_;
+          return key_ == null ?
+              com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : key_;
         }
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger, com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder, com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder> 
-          getKFieldBuilder() {
-        if (kBuilder_ == null) {
-          kBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+          getKeyFieldBuilder() {
+        if (keyBuilder_ == null) {
+          keyBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger, com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder, com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder>(
-                  getK(),
+                  getKey(),
                   getParentForChildren(),
                   isClean());
-          k_ = null;
+          key_ = null;
         }
-        return kBuilder_;
+        return keyBuilder_;
       }
 
-      private long vers_ ;
+      private long version_ ;
       /**
-       * <code>required int64 vers = 2;</code>
-       * @return Whether the vers field is set.
+       * <code>required int64 version = 2;</code>
+       * @return Whether the version field is set.
        */
       @java.lang.Override
-      public boolean hasVers() {
+      public boolean hasVersion() {
         return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <code>required int64 vers = 2;</code>
-       * @return The vers.
+       * <code>required int64 version = 2;</code>
+       * @return The version.
        */
       @java.lang.Override
-      public long getVers() {
-        return vers_;
+      public long getVersion() {
+        return version_;
       }
       /**
-       * <code>required int64 vers = 2;</code>
-       * @param value The vers to set.
+       * <code>required int64 version = 2;</code>
+       * @param value The version to set.
        * @return This builder for chaining.
        */
-      public Builder setVers(long value) {
+      public Builder setVersion(long value) {
         bitField0_ |= 0x00000002;
-        vers_ = value;
+        version_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int64 vers = 2;</code>
+       * <code>required int64 version = 2;</code>
        * @return This builder for chaining.
        */
-      public Builder clearVers() {
+      public Builder clearVersion() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        vers_ = 0L;
+        version_ = 0L;
         onChanged();
         return this;
       }
@@ -3762,45 +3762,45 @@ public final class Comunicacao {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required .BigInteger k = 1;</code>
-     * @return Whether the k field is set.
+     * <code>required .BigInteger key = 1;</code>
+     * @return Whether the key field is set.
      */
-    boolean hasK();
+    boolean hasKey();
     /**
-     * <code>required .BigInteger k = 1;</code>
-     * @return The k.
+     * <code>required .BigInteger key = 1;</code>
+     * @return The key.
      */
-    com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger getK();
+    com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger getKey();
     /**
-     * <code>required .BigInteger k = 1;</code>
+     * <code>required .BigInteger key = 1;</code>
      */
-    com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder getKOrBuilder();
+    com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder getKeyOrBuilder();
 
     /**
-     * <code>required .VTripla v = 2;</code>
-     * @return Whether the v field is set.
+     * <code>required .VTripla value = 2;</code>
+     * @return Whether the value field is set.
      */
-    boolean hasV();
+    boolean hasValue();
     /**
-     * <code>required .VTripla v = 2;</code>
-     * @return The v.
+     * <code>required .VTripla value = 2;</code>
+     * @return The value.
      */
-    com.ufu.sd.dbnosql.controller.Comunicacao.VTripla getV();
+    com.ufu.sd.dbnosql.controller.Comunicacao.VTripla getValue();
     /**
-     * <code>required .VTripla v = 2;</code>
+     * <code>required .VTripla value = 2;</code>
      */
-    com.ufu.sd.dbnosql.controller.Comunicacao.VTriplaOrBuilder getVOrBuilder();
+    com.ufu.sd.dbnosql.controller.Comunicacao.VTriplaOrBuilder getValueOrBuilder();
 
     /**
-     * <code>required int64 vers = 3;</code>
-     * @return Whether the vers field is set.
+     * <code>required int64 version = 3;</code>
+     * @return Whether the version field is set.
      */
-    boolean hasVers();
+    boolean hasVersion();
     /**
-     * <code>required int64 vers = 3;</code>
-     * @return The vers.
+     * <code>required int64 version = 3;</code>
+     * @return The version.
      */
-    long getVers();
+    long getVersion();
   }
   /**
    * Protobuf type {@code TestAndSetRequest}
@@ -3851,12 +3851,12 @@ public final class Comunicacao {
             case 10: {
               com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) != 0)) {
-                subBuilder = k_.toBuilder();
+                subBuilder = key_.toBuilder();
               }
-              k_ = input.readMessage(com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.PARSER, extensionRegistry);
+              key_ = input.readMessage(com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.PARSER, extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(k_);
-                k_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(key_);
+                key_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00000001;
               break;
@@ -3864,19 +3864,19 @@ public final class Comunicacao {
             case 18: {
               com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.Builder subBuilder = null;
               if (((bitField0_ & 0x00000002) != 0)) {
-                subBuilder = v_.toBuilder();
+                subBuilder = value_.toBuilder();
               }
-              v_ = input.readMessage(com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.PARSER, extensionRegistry);
+              value_ = input.readMessage(com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.PARSER, extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(v_);
-                v_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(value_);
+                value_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00000002;
               break;
             }
             case 24: {
               bitField0_ |= 0x00000004;
-              vers_ = input.readInt64();
+              version_ = input.readInt64();
               break;
             }
             default: {
@@ -3912,75 +3912,75 @@ public final class Comunicacao {
     }
 
     private int bitField0_;
-    public static final int K_FIELD_NUMBER = 1;
-    private com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger k_;
+    public static final int KEY_FIELD_NUMBER = 1;
+    private com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger key_;
     /**
-     * <code>required .BigInteger k = 1;</code>
-     * @return Whether the k field is set.
+     * <code>required .BigInteger key = 1;</code>
+     * @return Whether the key field is set.
      */
     @java.lang.Override
-    public boolean hasK() {
+    public boolean hasKey() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>required .BigInteger k = 1;</code>
-     * @return The k.
+     * <code>required .BigInteger key = 1;</code>
+     * @return The key.
      */
     @java.lang.Override
-    public com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger getK() {
-      return k_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : k_;
+    public com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger getKey() {
+      return key_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : key_;
     }
     /**
-     * <code>required .BigInteger k = 1;</code>
+     * <code>required .BigInteger key = 1;</code>
      */
     @java.lang.Override
-    public com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder getKOrBuilder() {
-      return k_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : k_;
+    public com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder getKeyOrBuilder() {
+      return key_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : key_;
     }
 
-    public static final int V_FIELD_NUMBER = 2;
-    private com.ufu.sd.dbnosql.controller.Comunicacao.VTripla v_;
+    public static final int VALUE_FIELD_NUMBER = 2;
+    private com.ufu.sd.dbnosql.controller.Comunicacao.VTripla value_;
     /**
-     * <code>required .VTripla v = 2;</code>
-     * @return Whether the v field is set.
+     * <code>required .VTripla value = 2;</code>
+     * @return Whether the value field is set.
      */
     @java.lang.Override
-    public boolean hasV() {
+    public boolean hasValue() {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>required .VTripla v = 2;</code>
-     * @return The v.
+     * <code>required .VTripla value = 2;</code>
+     * @return The value.
      */
     @java.lang.Override
-    public com.ufu.sd.dbnosql.controller.Comunicacao.VTripla getV() {
-      return v_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.getDefaultInstance() : v_;
+    public com.ufu.sd.dbnosql.controller.Comunicacao.VTripla getValue() {
+      return value_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.getDefaultInstance() : value_;
     }
     /**
-     * <code>required .VTripla v = 2;</code>
+     * <code>required .VTripla value = 2;</code>
      */
     @java.lang.Override
-    public com.ufu.sd.dbnosql.controller.Comunicacao.VTriplaOrBuilder getVOrBuilder() {
-      return v_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.getDefaultInstance() : v_;
+    public com.ufu.sd.dbnosql.controller.Comunicacao.VTriplaOrBuilder getValueOrBuilder() {
+      return value_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.getDefaultInstance() : value_;
     }
 
-    public static final int VERS_FIELD_NUMBER = 3;
-    private long vers_;
+    public static final int VERSION_FIELD_NUMBER = 3;
+    private long version_;
     /**
-     * <code>required int64 vers = 3;</code>
-     * @return Whether the vers field is set.
+     * <code>required int64 version = 3;</code>
+     * @return Whether the version field is set.
      */
     @java.lang.Override
-    public boolean hasVers() {
+    public boolean hasVersion() {
       return ((bitField0_ & 0x00000004) != 0);
     }
     /**
-     * <code>required int64 vers = 3;</code>
-     * @return The vers.
+     * <code>required int64 version = 3;</code>
+     * @return The version.
      */
     @java.lang.Override
-    public long getVers() {
-      return vers_;
+    public long getVersion() {
+      return version_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -3990,23 +3990,23 @@ public final class Comunicacao {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasK()) {
+      if (!hasKey()) {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasV()) {
+      if (!hasValue()) {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasVers()) {
+      if (!hasVersion()) {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!getK().isInitialized()) {
+      if (!getKey().isInitialized()) {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!getV().isInitialized()) {
+      if (!getValue().isInitialized()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -4018,13 +4018,13 @@ public final class Comunicacao {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeMessage(1, getK());
+        output.writeMessage(1, getKey());
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        output.writeMessage(2, getV());
+        output.writeMessage(2, getValue());
       }
       if (((bitField0_ & 0x00000004) != 0)) {
-        output.writeInt64(3, vers_);
+        output.writeInt64(3, version_);
       }
       unknownFields.writeTo(output);
     }
@@ -4037,15 +4037,15 @@ public final class Comunicacao {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getK());
+          .computeMessageSize(1, getKey());
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getV());
+          .computeMessageSize(2, getValue());
       }
       if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(3, vers_);
+          .computeInt64Size(3, version_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4062,20 +4062,20 @@ public final class Comunicacao {
       }
       com.ufu.sd.dbnosql.controller.Comunicacao.TestAndSetRequest other = (com.ufu.sd.dbnosql.controller.Comunicacao.TestAndSetRequest) obj;
 
-      if (hasK() != other.hasK()) return false;
-      if (hasK()) {
-        if (!getK()
-            .equals(other.getK())) return false;
+      if (hasKey() != other.hasKey()) return false;
+      if (hasKey()) {
+        if (!getKey()
+            .equals(other.getKey())) return false;
       }
-      if (hasV() != other.hasV()) return false;
-      if (hasV()) {
-        if (!getV()
-            .equals(other.getV())) return false;
+      if (hasValue() != other.hasValue()) return false;
+      if (hasValue()) {
+        if (!getValue()
+            .equals(other.getValue())) return false;
       }
-      if (hasVers() != other.hasVers()) return false;
-      if (hasVers()) {
-        if (getVers()
-            != other.getVers()) return false;
+      if (hasVersion() != other.hasVersion()) return false;
+      if (hasVersion()) {
+        if (getVersion()
+            != other.getVersion()) return false;
       }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
@@ -4088,18 +4088,18 @@ public final class Comunicacao {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasK()) {
-        hash = (37 * hash) + K_FIELD_NUMBER;
-        hash = (53 * hash) + getK().hashCode();
+      if (hasKey()) {
+        hash = (37 * hash) + KEY_FIELD_NUMBER;
+        hash = (53 * hash) + getKey().hashCode();
       }
-      if (hasV()) {
-        hash = (37 * hash) + V_FIELD_NUMBER;
-        hash = (53 * hash) + getV().hashCode();
+      if (hasValue()) {
+        hash = (37 * hash) + VALUE_FIELD_NUMBER;
+        hash = (53 * hash) + getValue().hashCode();
       }
-      if (hasVers()) {
-        hash = (37 * hash) + VERS_FIELD_NUMBER;
+      if (hasVersion()) {
+        hash = (37 * hash) + VERSION_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getVers());
+            getVersion());
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -4229,26 +4229,26 @@ public final class Comunicacao {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getKFieldBuilder();
-          getVFieldBuilder();
+          getKeyFieldBuilder();
+          getValueFieldBuilder();
         }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (kBuilder_ == null) {
-          k_ = null;
+        if (keyBuilder_ == null) {
+          key_ = null;
         } else {
-          kBuilder_.clear();
+          keyBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
-        if (vBuilder_ == null) {
-          v_ = null;
+        if (valueBuilder_ == null) {
+          value_ = null;
         } else {
-          vBuilder_.clear();
+          valueBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
-        vers_ = 0L;
+        version_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
@@ -4279,23 +4279,23 @@ public final class Comunicacao {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          if (kBuilder_ == null) {
-            result.k_ = k_;
+          if (keyBuilder_ == null) {
+            result.key_ = key_;
           } else {
-            result.k_ = kBuilder_.build();
+            result.key_ = keyBuilder_.build();
           }
           to_bitField0_ |= 0x00000001;
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
-          if (vBuilder_ == null) {
-            result.v_ = v_;
+          if (valueBuilder_ == null) {
+            result.value_ = value_;
           } else {
-            result.v_ = vBuilder_.build();
+            result.value_ = valueBuilder_.build();
           }
           to_bitField0_ |= 0x00000002;
         }
         if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.vers_ = vers_;
+          result.version_ = version_;
           to_bitField0_ |= 0x00000004;
         }
         result.bitField0_ = to_bitField0_;
@@ -4347,14 +4347,14 @@ public final class Comunicacao {
 
       public Builder mergeFrom(com.ufu.sd.dbnosql.controller.Comunicacao.TestAndSetRequest other) {
         if (other == com.ufu.sd.dbnosql.controller.Comunicacao.TestAndSetRequest.getDefaultInstance()) return this;
-        if (other.hasK()) {
-          mergeK(other.getK());
+        if (other.hasKey()) {
+          mergeKey(other.getKey());
         }
-        if (other.hasV()) {
-          mergeV(other.getV());
+        if (other.hasValue()) {
+          mergeValue(other.getValue());
         }
-        if (other.hasVers()) {
-          setVers(other.getVers());
+        if (other.hasVersion()) {
+          setVersion(other.getVersion());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -4363,19 +4363,19 @@ public final class Comunicacao {
 
       @java.lang.Override
       public final boolean isInitialized() {
-        if (!hasK()) {
+        if (!hasKey()) {
           return false;
         }
-        if (!hasV()) {
+        if (!hasValue()) {
           return false;
         }
-        if (!hasVers()) {
+        if (!hasVersion()) {
           return false;
         }
-        if (!getK().isInitialized()) {
+        if (!getKey().isInitialized()) {
           return false;
         }
-        if (!getV().isInitialized()) {
+        if (!getValue().isInitialized()) {
           return false;
         }
         return true;
@@ -4401,281 +4401,281 @@ public final class Comunicacao {
       }
       private int bitField0_;
 
-      private com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger k_;
+      private com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger key_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger, com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder, com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder> kBuilder_;
+          com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger, com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder, com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder> keyBuilder_;
       /**
-       * <code>required .BigInteger k = 1;</code>
-       * @return Whether the k field is set.
+       * <code>required .BigInteger key = 1;</code>
+       * @return Whether the key field is set.
        */
-      public boolean hasK() {
+      public boolean hasKey() {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
-       * @return The k.
+       * <code>required .BigInteger key = 1;</code>
+       * @return The key.
        */
-      public com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger getK() {
-        if (kBuilder_ == null) {
-          return k_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : k_;
+      public com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger getKey() {
+        if (keyBuilder_ == null) {
+          return key_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : key_;
         } else {
-          return kBuilder_.getMessage();
+          return keyBuilder_.getMessage();
         }
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
-      public Builder setK(com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger value) {
-        if (kBuilder_ == null) {
+      public Builder setKey(com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger value) {
+        if (keyBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          k_ = value;
+          key_ = value;
           onChanged();
         } else {
-          kBuilder_.setMessage(value);
+          keyBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000001;
         return this;
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
-      public Builder setK(
+      public Builder setKey(
           com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder builderForValue) {
-        if (kBuilder_ == null) {
-          k_ = builderForValue.build();
+        if (keyBuilder_ == null) {
+          key_ = builderForValue.build();
           onChanged();
         } else {
-          kBuilder_.setMessage(builderForValue.build());
+          keyBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000001;
         return this;
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
-      public Builder mergeK(com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger value) {
-        if (kBuilder_ == null) {
+      public Builder mergeKey(com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger value) {
+        if (keyBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0) &&
-              k_ != null &&
-              k_ != com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance()) {
-            k_ =
-              com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.newBuilder(k_).mergeFrom(value).buildPartial();
+              key_ != null &&
+              key_ != com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance()) {
+            key_ =
+              com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.newBuilder(key_).mergeFrom(value).buildPartial();
           } else {
-            k_ = value;
+            key_ = value;
           }
           onChanged();
         } else {
-          kBuilder_.mergeFrom(value);
+          keyBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000001;
         return this;
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
-      public Builder clearK() {
-        if (kBuilder_ == null) {
-          k_ = null;
+      public Builder clearKey() {
+        if (keyBuilder_ == null) {
+          key_ = null;
           onChanged();
         } else {
-          kBuilder_.clear();
+          keyBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
-      public com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder getKBuilder() {
+      public com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder getKeyBuilder() {
         bitField0_ |= 0x00000001;
         onChanged();
-        return getKFieldBuilder().getBuilder();
+        return getKeyFieldBuilder().getBuilder();
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
-      public com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder getKOrBuilder() {
-        if (kBuilder_ != null) {
-          return kBuilder_.getMessageOrBuilder();
+      public com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder getKeyOrBuilder() {
+        if (keyBuilder_ != null) {
+          return keyBuilder_.getMessageOrBuilder();
         } else {
-          return k_ == null ?
-              com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : k_;
+          return key_ == null ?
+              com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.getDefaultInstance() : key_;
         }
       }
       /**
-       * <code>required .BigInteger k = 1;</code>
+       * <code>required .BigInteger key = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger, com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder, com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder> 
-          getKFieldBuilder() {
-        if (kBuilder_ == null) {
-          kBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+          getKeyFieldBuilder() {
+        if (keyBuilder_ == null) {
+          keyBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger, com.ufu.sd.dbnosql.controller.Comunicacao.BigInteger.Builder, com.ufu.sd.dbnosql.controller.Comunicacao.BigIntegerOrBuilder>(
-                  getK(),
+                  getKey(),
                   getParentForChildren(),
                   isClean());
-          k_ = null;
+          key_ = null;
         }
-        return kBuilder_;
+        return keyBuilder_;
       }
 
-      private com.ufu.sd.dbnosql.controller.Comunicacao.VTripla v_;
+      private com.ufu.sd.dbnosql.controller.Comunicacao.VTripla value_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.ufu.sd.dbnosql.controller.Comunicacao.VTripla, com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.Builder, com.ufu.sd.dbnosql.controller.Comunicacao.VTriplaOrBuilder> vBuilder_;
+          com.ufu.sd.dbnosql.controller.Comunicacao.VTripla, com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.Builder, com.ufu.sd.dbnosql.controller.Comunicacao.VTriplaOrBuilder> valueBuilder_;
       /**
-       * <code>required .VTripla v = 2;</code>
-       * @return Whether the v field is set.
+       * <code>required .VTripla value = 2;</code>
+       * @return Whether the value field is set.
        */
-      public boolean hasV() {
+      public boolean hasValue() {
         return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <code>required .VTripla v = 2;</code>
-       * @return The v.
+       * <code>required .VTripla value = 2;</code>
+       * @return The value.
        */
-      public com.ufu.sd.dbnosql.controller.Comunicacao.VTripla getV() {
-        if (vBuilder_ == null) {
-          return v_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.getDefaultInstance() : v_;
+      public com.ufu.sd.dbnosql.controller.Comunicacao.VTripla getValue() {
+        if (valueBuilder_ == null) {
+          return value_ == null ? com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.getDefaultInstance() : value_;
         } else {
-          return vBuilder_.getMessage();
+          return valueBuilder_.getMessage();
         }
       }
       /**
-       * <code>required .VTripla v = 2;</code>
+       * <code>required .VTripla value = 2;</code>
        */
-      public Builder setV(com.ufu.sd.dbnosql.controller.Comunicacao.VTripla value) {
-        if (vBuilder_ == null) {
+      public Builder setValue(com.ufu.sd.dbnosql.controller.Comunicacao.VTripla value) {
+        if (valueBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          v_ = value;
+          value_ = value;
           onChanged();
         } else {
-          vBuilder_.setMessage(value);
+          valueBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <code>required .VTripla v = 2;</code>
+       * <code>required .VTripla value = 2;</code>
        */
-      public Builder setV(
+      public Builder setValue(
           com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.Builder builderForValue) {
-        if (vBuilder_ == null) {
-          v_ = builderForValue.build();
+        if (valueBuilder_ == null) {
+          value_ = builderForValue.build();
           onChanged();
         } else {
-          vBuilder_.setMessage(builderForValue.build());
+          valueBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <code>required .VTripla v = 2;</code>
+       * <code>required .VTripla value = 2;</code>
        */
-      public Builder mergeV(com.ufu.sd.dbnosql.controller.Comunicacao.VTripla value) {
-        if (vBuilder_ == null) {
+      public Builder mergeValue(com.ufu.sd.dbnosql.controller.Comunicacao.VTripla value) {
+        if (valueBuilder_ == null) {
           if (((bitField0_ & 0x00000002) != 0) &&
-              v_ != null &&
-              v_ != com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.getDefaultInstance()) {
-            v_ =
-              com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.newBuilder(v_).mergeFrom(value).buildPartial();
+              value_ != null &&
+              value_ != com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.getDefaultInstance()) {
+            value_ =
+              com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.newBuilder(value_).mergeFrom(value).buildPartial();
           } else {
-            v_ = value;
+            value_ = value;
           }
           onChanged();
         } else {
-          vBuilder_.mergeFrom(value);
+          valueBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <code>required .VTripla v = 2;</code>
+       * <code>required .VTripla value = 2;</code>
        */
-      public Builder clearV() {
-        if (vBuilder_ == null) {
-          v_ = null;
+      public Builder clearValue() {
+        if (valueBuilder_ == null) {
+          value_ = null;
           onChanged();
         } else {
-          vBuilder_.clear();
+          valueBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
       /**
-       * <code>required .VTripla v = 2;</code>
+       * <code>required .VTripla value = 2;</code>
        */
-      public com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.Builder getVBuilder() {
+      public com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.Builder getValueBuilder() {
         bitField0_ |= 0x00000002;
         onChanged();
-        return getVFieldBuilder().getBuilder();
+        return getValueFieldBuilder().getBuilder();
       }
       /**
-       * <code>required .VTripla v = 2;</code>
+       * <code>required .VTripla value = 2;</code>
        */
-      public com.ufu.sd.dbnosql.controller.Comunicacao.VTriplaOrBuilder getVOrBuilder() {
-        if (vBuilder_ != null) {
-          return vBuilder_.getMessageOrBuilder();
+      public com.ufu.sd.dbnosql.controller.Comunicacao.VTriplaOrBuilder getValueOrBuilder() {
+        if (valueBuilder_ != null) {
+          return valueBuilder_.getMessageOrBuilder();
         } else {
-          return v_ == null ?
-              com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.getDefaultInstance() : v_;
+          return value_ == null ?
+              com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.getDefaultInstance() : value_;
         }
       }
       /**
-       * <code>required .VTripla v = 2;</code>
+       * <code>required .VTripla value = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.ufu.sd.dbnosql.controller.Comunicacao.VTripla, com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.Builder, com.ufu.sd.dbnosql.controller.Comunicacao.VTriplaOrBuilder> 
-          getVFieldBuilder() {
-        if (vBuilder_ == null) {
-          vBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+          getValueFieldBuilder() {
+        if (valueBuilder_ == null) {
+          valueBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.ufu.sd.dbnosql.controller.Comunicacao.VTripla, com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.Builder, com.ufu.sd.dbnosql.controller.Comunicacao.VTriplaOrBuilder>(
-                  getV(),
+                  getValue(),
                   getParentForChildren(),
                   isClean());
-          v_ = null;
+          value_ = null;
         }
-        return vBuilder_;
+        return valueBuilder_;
       }
 
-      private long vers_ ;
+      private long version_ ;
       /**
-       * <code>required int64 vers = 3;</code>
-       * @return Whether the vers field is set.
+       * <code>required int64 version = 3;</code>
+       * @return Whether the version field is set.
        */
       @java.lang.Override
-      public boolean hasVers() {
+      public boolean hasVersion() {
         return ((bitField0_ & 0x00000004) != 0);
       }
       /**
-       * <code>required int64 vers = 3;</code>
-       * @return The vers.
+       * <code>required int64 version = 3;</code>
+       * @return The version.
        */
       @java.lang.Override
-      public long getVers() {
-        return vers_;
+      public long getVersion() {
+        return version_;
       }
       /**
-       * <code>required int64 vers = 3;</code>
-       * @param value The vers to set.
+       * <code>required int64 version = 3;</code>
+       * @param value The version to set.
        * @return This builder for chaining.
        */
-      public Builder setVers(long value) {
+      public Builder setVersion(long value) {
         bitField0_ |= 0x00000004;
-        vers_ = value;
+        version_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int64 vers = 3;</code>
+       * <code>required int64 version = 3;</code>
        * @return This builder for chaining.
        */
-      public Builder clearVers() {
+      public Builder clearVersion() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        vers_ = 0L;
+        version_ = 0L;
         onChanged();
         return this;
       }
@@ -4737,37 +4737,37 @@ public final class Comunicacao {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required int64 vers = 1;</code>
-     * @return Whether the vers field is set.
+     * <code>required int64 version = 1;</code>
+     * @return Whether the version field is set.
      */
-    boolean hasVers();
+    boolean hasVersion();
     /**
-     * <code>required int64 vers = 1;</code>
-     * @return The vers.
+     * <code>required int64 version = 1;</code>
+     * @return The version.
      */
-    long getVers();
+    long getVersion();
 
     /**
-     * <code>required int64 ts = 2;</code>
-     * @return Whether the ts field is set.
+     * <code>required int64 timestamp = 2;</code>
+     * @return Whether the timestamp field is set.
      */
-    boolean hasTs();
+    boolean hasTimestamp();
     /**
-     * <code>required int64 ts = 2;</code>
-     * @return The ts.
+     * <code>required int64 timestamp = 2;</code>
+     * @return The timestamp.
      */
-    long getTs();
+    long getTimestamp();
 
     /**
-     * <code>required bytes d = 3;</code>
-     * @return Whether the d field is set.
+     * <code>required bytes data = 3;</code>
+     * @return Whether the data field is set.
      */
-    boolean hasD();
+    boolean hasData();
     /**
-     * <code>required bytes d = 3;</code>
-     * @return The d.
+     * <code>required bytes data = 3;</code>
+     * @return The data.
      */
-    com.google.protobuf.ByteString getD();
+    com.google.protobuf.ByteString getData();
   }
   /**
    * Protobuf type {@code VTripla}
@@ -4782,7 +4782,7 @@ public final class Comunicacao {
       super(builder);
     }
     private VTripla() {
-      d_ = com.google.protobuf.ByteString.EMPTY;
+      data_ = com.google.protobuf.ByteString.EMPTY;
     }
 
     @java.lang.Override
@@ -4818,17 +4818,17 @@ public final class Comunicacao {
               break;
             case 8: {
               bitField0_ |= 0x00000001;
-              vers_ = input.readInt64();
+              version_ = input.readInt64();
               break;
             }
             case 16: {
               bitField0_ |= 0x00000002;
-              ts_ = input.readInt64();
+              timestamp_ = input.readInt64();
               break;
             }
             case 26: {
               bitField0_ |= 0x00000004;
-              d_ = input.readBytes();
+              data_ = input.readBytes();
               break;
             }
             default: {
@@ -4864,61 +4864,61 @@ public final class Comunicacao {
     }
 
     private int bitField0_;
-    public static final int VERS_FIELD_NUMBER = 1;
-    private long vers_;
+    public static final int VERSION_FIELD_NUMBER = 1;
+    private long version_;
     /**
-     * <code>required int64 vers = 1;</code>
-     * @return Whether the vers field is set.
+     * <code>required int64 version = 1;</code>
+     * @return Whether the version field is set.
      */
     @java.lang.Override
-    public boolean hasVers() {
+    public boolean hasVersion() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>required int64 vers = 1;</code>
-     * @return The vers.
+     * <code>required int64 version = 1;</code>
+     * @return The version.
      */
     @java.lang.Override
-    public long getVers() {
-      return vers_;
+    public long getVersion() {
+      return version_;
     }
 
-    public static final int TS_FIELD_NUMBER = 2;
-    private long ts_;
+    public static final int TIMESTAMP_FIELD_NUMBER = 2;
+    private long timestamp_;
     /**
-     * <code>required int64 ts = 2;</code>
-     * @return Whether the ts field is set.
+     * <code>required int64 timestamp = 2;</code>
+     * @return Whether the timestamp field is set.
      */
     @java.lang.Override
-    public boolean hasTs() {
+    public boolean hasTimestamp() {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>required int64 ts = 2;</code>
-     * @return The ts.
+     * <code>required int64 timestamp = 2;</code>
+     * @return The timestamp.
      */
     @java.lang.Override
-    public long getTs() {
-      return ts_;
+    public long getTimestamp() {
+      return timestamp_;
     }
 
-    public static final int D_FIELD_NUMBER = 3;
-    private com.google.protobuf.ByteString d_;
+    public static final int DATA_FIELD_NUMBER = 3;
+    private com.google.protobuf.ByteString data_;
     /**
-     * <code>required bytes d = 3;</code>
-     * @return Whether the d field is set.
+     * <code>required bytes data = 3;</code>
+     * @return Whether the data field is set.
      */
     @java.lang.Override
-    public boolean hasD() {
+    public boolean hasData() {
       return ((bitField0_ & 0x00000004) != 0);
     }
     /**
-     * <code>required bytes d = 3;</code>
-     * @return The d.
+     * <code>required bytes data = 3;</code>
+     * @return The data.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString getD() {
-      return d_;
+    public com.google.protobuf.ByteString getData() {
+      return data_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4928,15 +4928,15 @@ public final class Comunicacao {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasVers()) {
+      if (!hasVersion()) {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasTs()) {
+      if (!hasTimestamp()) {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasD()) {
+      if (!hasData()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -4948,13 +4948,13 @@ public final class Comunicacao {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeInt64(1, vers_);
+        output.writeInt64(1, version_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        output.writeInt64(2, ts_);
+        output.writeInt64(2, timestamp_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
-        output.writeBytes(3, d_);
+        output.writeBytes(3, data_);
       }
       unknownFields.writeTo(output);
     }
@@ -4967,15 +4967,15 @@ public final class Comunicacao {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(1, vers_);
+          .computeInt64Size(1, version_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(2, ts_);
+          .computeInt64Size(2, timestamp_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(3, d_);
+          .computeBytesSize(3, data_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4992,20 +4992,20 @@ public final class Comunicacao {
       }
       com.ufu.sd.dbnosql.controller.Comunicacao.VTripla other = (com.ufu.sd.dbnosql.controller.Comunicacao.VTripla) obj;
 
-      if (hasVers() != other.hasVers()) return false;
-      if (hasVers()) {
-        if (getVers()
-            != other.getVers()) return false;
+      if (hasVersion() != other.hasVersion()) return false;
+      if (hasVersion()) {
+        if (getVersion()
+            != other.getVersion()) return false;
       }
-      if (hasTs() != other.hasTs()) return false;
-      if (hasTs()) {
-        if (getTs()
-            != other.getTs()) return false;
+      if (hasTimestamp() != other.hasTimestamp()) return false;
+      if (hasTimestamp()) {
+        if (getTimestamp()
+            != other.getTimestamp()) return false;
       }
-      if (hasD() != other.hasD()) return false;
-      if (hasD()) {
-        if (!getD()
-            .equals(other.getD())) return false;
+      if (hasData() != other.hasData()) return false;
+      if (hasData()) {
+        if (!getData()
+            .equals(other.getData())) return false;
       }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
@@ -5018,19 +5018,19 @@ public final class Comunicacao {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasVers()) {
-        hash = (37 * hash) + VERS_FIELD_NUMBER;
+      if (hasVersion()) {
+        hash = (37 * hash) + VERSION_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getVers());
+            getVersion());
       }
-      if (hasTs()) {
-        hash = (37 * hash) + TS_FIELD_NUMBER;
+      if (hasTimestamp()) {
+        hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getTs());
+            getTimestamp());
       }
-      if (hasD()) {
-        hash = (37 * hash) + D_FIELD_NUMBER;
-        hash = (53 * hash) + getD().hashCode();
+      if (hasData()) {
+        hash = (37 * hash) + DATA_FIELD_NUMBER;
+        hash = (53 * hash) + getData().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -5165,11 +5165,11 @@ public final class Comunicacao {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        vers_ = 0L;
+        version_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
-        ts_ = 0L;
+        timestamp_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
-        d_ = com.google.protobuf.ByteString.EMPTY;
+        data_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
@@ -5200,17 +5200,17 @@ public final class Comunicacao {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.vers_ = vers_;
+          result.version_ = version_;
           to_bitField0_ |= 0x00000001;
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.ts_ = ts_;
+          result.timestamp_ = timestamp_;
           to_bitField0_ |= 0x00000002;
         }
         if (((from_bitField0_ & 0x00000004) != 0)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.d_ = d_;
+        result.data_ = data_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -5260,14 +5260,14 @@ public final class Comunicacao {
 
       public Builder mergeFrom(com.ufu.sd.dbnosql.controller.Comunicacao.VTripla other) {
         if (other == com.ufu.sd.dbnosql.controller.Comunicacao.VTripla.getDefaultInstance()) return this;
-        if (other.hasVers()) {
-          setVers(other.getVers());
+        if (other.hasVersion()) {
+          setVersion(other.getVersion());
         }
-        if (other.hasTs()) {
-          setTs(other.getTs());
+        if (other.hasTimestamp()) {
+          setTimestamp(other.getTimestamp());
         }
-        if (other.hasD()) {
-          setD(other.getD());
+        if (other.hasData()) {
+          setData(other.getData());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -5276,13 +5276,13 @@ public final class Comunicacao {
 
       @java.lang.Override
       public final boolean isInitialized() {
-        if (!hasVers()) {
+        if (!hasVersion()) {
           return false;
         }
-        if (!hasTs()) {
+        if (!hasTimestamp()) {
           return false;
         }
-        if (!hasD()) {
+        if (!hasData()) {
           return false;
         }
         return true;
@@ -5308,122 +5308,122 @@ public final class Comunicacao {
       }
       private int bitField0_;
 
-      private long vers_ ;
+      private long version_ ;
       /**
-       * <code>required int64 vers = 1;</code>
-       * @return Whether the vers field is set.
+       * <code>required int64 version = 1;</code>
+       * @return Whether the version field is set.
        */
       @java.lang.Override
-      public boolean hasVers() {
+      public boolean hasVersion() {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>required int64 vers = 1;</code>
-       * @return The vers.
+       * <code>required int64 version = 1;</code>
+       * @return The version.
        */
       @java.lang.Override
-      public long getVers() {
-        return vers_;
+      public long getVersion() {
+        return version_;
       }
       /**
-       * <code>required int64 vers = 1;</code>
-       * @param value The vers to set.
+       * <code>required int64 version = 1;</code>
+       * @param value The version to set.
        * @return This builder for chaining.
        */
-      public Builder setVers(long value) {
+      public Builder setVersion(long value) {
         bitField0_ |= 0x00000001;
-        vers_ = value;
+        version_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int64 vers = 1;</code>
+       * <code>required int64 version = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearVers() {
+      public Builder clearVersion() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        vers_ = 0L;
+        version_ = 0L;
         onChanged();
         return this;
       }
 
-      private long ts_ ;
+      private long timestamp_ ;
       /**
-       * <code>required int64 ts = 2;</code>
-       * @return Whether the ts field is set.
+       * <code>required int64 timestamp = 2;</code>
+       * @return Whether the timestamp field is set.
        */
       @java.lang.Override
-      public boolean hasTs() {
+      public boolean hasTimestamp() {
         return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <code>required int64 ts = 2;</code>
-       * @return The ts.
+       * <code>required int64 timestamp = 2;</code>
+       * @return The timestamp.
        */
       @java.lang.Override
-      public long getTs() {
-        return ts_;
+      public long getTimestamp() {
+        return timestamp_;
       }
       /**
-       * <code>required int64 ts = 2;</code>
-       * @param value The ts to set.
+       * <code>required int64 timestamp = 2;</code>
+       * @param value The timestamp to set.
        * @return This builder for chaining.
        */
-      public Builder setTs(long value) {
+      public Builder setTimestamp(long value) {
         bitField0_ |= 0x00000002;
-        ts_ = value;
+        timestamp_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int64 ts = 2;</code>
+       * <code>required int64 timestamp = 2;</code>
        * @return This builder for chaining.
        */
-      public Builder clearTs() {
+      public Builder clearTimestamp() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        ts_ = 0L;
+        timestamp_ = 0L;
         onChanged();
         return this;
       }
 
-      private com.google.protobuf.ByteString d_ = com.google.protobuf.ByteString.EMPTY;
+      private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>required bytes d = 3;</code>
-       * @return Whether the d field is set.
+       * <code>required bytes data = 3;</code>
+       * @return Whether the data field is set.
        */
       @java.lang.Override
-      public boolean hasD() {
+      public boolean hasData() {
         return ((bitField0_ & 0x00000004) != 0);
       }
       /**
-       * <code>required bytes d = 3;</code>
-       * @return The d.
+       * <code>required bytes data = 3;</code>
+       * @return The data.
        */
       @java.lang.Override
-      public com.google.protobuf.ByteString getD() {
-        return d_;
+      public com.google.protobuf.ByteString getData() {
+        return data_;
       }
       /**
-       * <code>required bytes d = 3;</code>
-       * @param value The d to set.
+       * <code>required bytes data = 3;</code>
+       * @param value The data to set.
        * @return This builder for chaining.
        */
-      public Builder setD(com.google.protobuf.ByteString value) {
+      public Builder setData(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000004;
-        d_ = value;
+        data_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required bytes d = 3;</code>
+       * <code>required bytes data = 3;</code>
        * @return This builder for chaining.
        */
-      public Builder clearD() {
+      public Builder clearData() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        d_ = getDefaultInstance().getD();
+        data_ = getDefaultInstance().getData();
         onChanged();
         return this;
       }
@@ -6075,22 +6075,24 @@ public final class Comunicacao {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\021Comunicacao.proto\";\n\nSetRequest\022\026\n\001k\030\001" +
-      " \002(\0132\013.BigInteger\022\n\n\002ts\030\002 \002(\003\022\t\n\001d\030\003 \002(\014" +
-      "\"+\n\005Reply\022\r\n\005error\030\001 \002(\t\022\023\n\001v\030\002 \002(\0132\010.VT" +
-      "ripla\"$\n\nGetRequest\022\026\n\001k\030\001 \002(\0132\013.BigInte" +
-      "ger\"$\n\nDelRequest\022\026\n\001k\030\001 \002(\0132\013.BigIntege" +
-      "r\"6\n\016DelRequestVers\022\026\n\001k\030\001 \002(\0132\013.BigInte" +
-      "ger\022\014\n\004vers\030\002 \002(\003\"N\n\021TestAndSetRequest\022\026" +
-      "\n\001k\030\001 \002(\0132\013.BigInteger\022\023\n\001v\030\002 \002(\0132\010.VTri" +
-      "pla\022\014\n\004vers\030\003 \002(\003\".\n\007VTripla\022\014\n\004vers\030\001 \002" +
-      "(\003\022\n\n\002ts\030\002 \002(\003\022\t\n\001d\030\003 \002(\014\"\033\n\nBigInteger\022" +
-      "\r\n\005value\030\001 \002(\0142\272\001\n\014CrudKeyValue\022\034\n\003set\022\013" +
-      ".SetRequest\032\006.Reply\"\000\022\034\n\003get\022\013.GetReques" +
-      "t\032\006.Reply\"\000\022\034\n\003del\022\013.DelRequest\032\006.Reply\"" +
-      "\000\022$\n\007delVers\022\017.DelRequestVers\032\006.Reply\"\000\022" +
-      "*\n\ntestAndSet\022\022.TestAndSetRequest\032\006.Repl" +
-      "y\"\000B\037\n\035com.ufu.sd.dbnosql.controller"
+      "\n\021Comunicacao.proto\"G\n\nSetRequest\022\030\n\003key" +
+      "\030\001 \002(\0132\013.BigInteger\022\021\n\ttimestamp\030\002 \002(\003\022\014" +
+      "\n\004data\030\003 \002(\014\"/\n\005Reply\022\r\n\005error\030\001 \002(\t\022\027\n\005" +
+      "value\030\002 \002(\0132\010.VTripla\"&\n\nGetRequest\022\030\n\003k" +
+      "ey\030\001 \002(\0132\013.BigInteger\"&\n\nDelRequest\022\030\n\003k" +
+      "ey\030\001 \002(\0132\013.BigInteger\";\n\016DelRequestVers\022" +
+      "\030\n\003key\030\001 \002(\0132\013.BigInteger\022\017\n\007version\030\002 \002" +
+      "(\003\"W\n\021TestAndSetRequest\022\030\n\003key\030\001 \002(\0132\013.B" +
+      "igInteger\022\027\n\005value\030\002 \002(\0132\010.VTripla\022\017\n\007ve" +
+      "rsion\030\003 \002(\003\";\n\007VTripla\022\017\n\007version\030\001 \002(\003\022" +
+      "\021\n\ttimestamp\030\002 \002(\003\022\014\n\004data\030\003 \002(\014\"\033\n\nBigI" +
+      "nteger\022\r\n\005value\030\001 \002(\0142\272\001\n\014CrudkeyValue\022\034" +
+      "\n\003set\022\013.SetRequest\032\006.Reply\"\000\022\034\n\003get\022\013.Ge" +
+      "tRequest\032\006.Reply\"\000\022\034\n\003del\022\013.DelRequest\032\006" +
+      ".Reply\"\000\022$\n\007delVers\022\017.DelRequestVers\032\006.R" +
+      "eply\"\000\022*\n\ntestAndSet\022\022.TestAndSetRequest" +
+      "\032\006.Reply\"\000B\037\n\035com.ufu.sd.dbnosql.control" +
+      "ler"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -6101,43 +6103,43 @@ public final class Comunicacao {
     internal_static_SetRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SetRequest_descriptor,
-        new java.lang.String[] { "K", "Ts", "D", });
+        new java.lang.String[] { "Key", "Timestamp", "Data", });
     internal_static_Reply_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_Reply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Reply_descriptor,
-        new java.lang.String[] { "Error", "V", });
+        new java.lang.String[] { "Error", "Value", });
     internal_static_GetRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_GetRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_GetRequest_descriptor,
-        new java.lang.String[] { "K", });
+        new java.lang.String[] { "Key", });
     internal_static_DelRequest_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_DelRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_DelRequest_descriptor,
-        new java.lang.String[] { "K", });
+        new java.lang.String[] { "Key", });
     internal_static_DelRequestVers_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_DelRequestVers_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_DelRequestVers_descriptor,
-        new java.lang.String[] { "K", "Vers", });
+        new java.lang.String[] { "Key", "Version", });
     internal_static_TestAndSetRequest_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_TestAndSetRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_TestAndSetRequest_descriptor,
-        new java.lang.String[] { "K", "V", "Vers", });
+        new java.lang.String[] { "Key", "Value", "Version", });
     internal_static_VTripla_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_VTripla_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_VTripla_descriptor,
-        new java.lang.String[] { "Vers", "Ts", "D", });
+        new java.lang.String[] { "Version", "Timestamp", "Data", });
     internal_static_BigInteger_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_BigInteger_fieldAccessorTable = new
