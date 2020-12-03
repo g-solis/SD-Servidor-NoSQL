@@ -1,21 +1,31 @@
 package com.ufu.sd.dbnosql;
 import com.ufu.sd.dbnosql.controller.*;
+import com.ufu.sd.dbnosql.model.HashtableValue;
 import io.grpc.stub.*;
+
+import java.math.BigInteger;
+import java.util.Hashtable;
 
 public class DbNosqlService extends CrudKeyValueGrpc.CrudKeyValueImplBase{
 
-//    TODO_TabelaHash Table;
-//
-//    public DbNosqlService(TODO_TabelaHash Table)
-//    {
-//        this.Table = Table;
-//    }
+    private Hashtable<BigInteger, HashtableValue> hashtable;
+
+    public DbNosqlService() {
+        this.hashtable = new Hashtable<>();
+    }
 
     @Override
     public void set(Comunicacao.SetRequest request,
                     StreamObserver<Comunicacao.Reply> responseObserver) {
+        BigInteger key = new BigInteger(request.getKey().getValue().toByteArray());
+        long timestamp = request.getTimestamp();
+        byte[] data = request.getData().toByteArray();
+        long version = 1;
 
-        //Implementar
+        Comunicacao.VTripla vt = Comunicacao.VTripla.newBuilder().setVersion(version).setTimestamp(timestamp).setData(request.getData()).build();
+        Comunicacao.Reply rp = Comunicacao.Reply.newBuilder().setError("ERROR").setValue(vt).build();
+        responseObserver.onNext(rp);
+        responseObserver.onCompleted();
     }
 
     @Override

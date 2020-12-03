@@ -1,7 +1,5 @@
 package com.ufu.sd.dbnosql.model;
 
-import java.util.Hashtable;
-
 public class HashtableValue {
     private long version;
     private long timestamp;
