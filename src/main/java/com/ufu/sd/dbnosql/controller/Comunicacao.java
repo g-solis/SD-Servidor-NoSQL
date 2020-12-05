@@ -3,6 +3,8 @@
 
 package com.ufu.sd.dbnosql.controller;
 
+import java.math.BigInteger;
+
 public final class Comunicacao {
   private Comunicacao() {}
   public static void registerAllExtensions(

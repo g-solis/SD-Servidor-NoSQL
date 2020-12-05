@@ -20,7 +20,7 @@ message SetRequest{
 
 message Reply{
     required string error = 1;
-    required VTripla value = 2;
+    optional VTripla value = 2;
 }
 
 message GetRequest{

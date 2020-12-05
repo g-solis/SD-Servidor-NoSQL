@@ -1,6 +1,8 @@
 package com.ufu.sd.dbnosql.model;
 
-public class HashtableValue {
+import java.io.Serializable;
+
+public class HashtableValue implements Serializable {
     public long version;
     public long timestamp;
     public byte[] data;

@@ -1,15 +1,15 @@
 package com.ufu.sd.dbnosql.controller;
 
 import com.ufu.sd.dbnosql.DbNosqlService;
+import com.ufu.sd.dbnosql.model.HashtableValue;
+import com.ufu.sd.dbnosql.repository.DbNosqlRepository;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.TimeUnit;
@@ -22,9 +22,9 @@ public class DbNosqlServer{
     private final int port;
     private final Server server;
 
-    public DbNosqlServer(int port) {
+    public DbNosqlServer(int port, String dirHashtable) {
         this.port = port;
-        server = ServerBuilder.forPort(port).addService(new DbNosqlService()).build();
+        server = ServerBuilder.forPort(port).addService(new DbNosqlService(dirHashtable)).build();
     }
 
     public void start() throws IOException {
@@ -57,10 +57,14 @@ public class DbNosqlServer{
         }
     }
 
-    public static void main(String[] args) throws Exception {
-        DbNosqlServer server = new DbNosqlServer(8980);
-        server.start();
-        server.blockUntilShutdown();
+    public static void main(String[] args) {
+        try {
+            DbNosqlServer server = new DbNosqlServer(8980, "hash");
+            server.start();
+            server.blockUntilShutdown();
+        } catch (Exception e) {
+            logger.log(Level.WARNING, "Start server failed: ", e);
+        }
     }
 
 }
