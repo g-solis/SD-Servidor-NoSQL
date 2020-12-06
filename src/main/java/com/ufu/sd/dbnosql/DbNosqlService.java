@@ -40,7 +40,7 @@ public class DbNosqlService extends CrudKeyValueGrpc.CrudKeyValueImplBase{
 
             hashtable.put(key, new HashtableValue(1,timestamp,data));
 
-            reply = CreateReply("SUCCESS",1,timestamp,data);
+            reply = CreateReply("SUCCESS");
             SendReply(responseObserver, reply);
 
             writeHashtableFile(hashtable);
@@ -50,50 +50,48 @@ public class DbNosqlService extends CrudKeyValueGrpc.CrudKeyValueImplBase{
     @Override
     public void get(Comunicacao.GetRequest request,
                     StreamObserver<Comunicacao.Reply> responseObserver) {
-
+        Comunicacao.Reply reply;
         BigInteger key = ToBigInteger(request.getKey().getValue());
-
-        Comunicacao.Reply rp = null;
 
         if(hashtable.containsKey(key)) {
             HashtableValue htValue =  hashtable.get(key);
 
-            rp = CreateReply("SUCCESS", htValue.version,htValue.timestamp,htValue.data);
+            reply = CreateReply("SUCCESS", htValue.version,htValue.timestamp,htValue.data);
+            SendReply(responseObserver, reply);
+
+            writeHashtableFile(hashtable);
         }
         else {
-            rp = CreateReply("ERROR");
+            reply = CreateReply("ERROR");
+            SendReply(responseObserver, reply);
         }
-
-        SendReply(responseObserver, rp);
     }
 
     @Override
     public void del(Comunicacao.DelRequest request,
                     StreamObserver<Comunicacao.Reply> responseObserver) {
-
+        Comunicacao.Reply reply;
         BigInteger key = ToBigInteger(request.getKey().getValue());
-
-        Comunicacao.Reply rp = null;
 
         if(hashtable.containsKey(key)) {
             HashtableValue htValue =  hashtable.remove(key);
 
-            rp = CreateReply("SUCCESS", htValue.version,htValue.timestamp,htValue.data);
+            reply = CreateReply("SUCCESS", htValue.version,htValue.timestamp,htValue.data);
+            SendReply(responseObserver, reply);
+
+            writeHashtableFile(hashtable);
         }
         else {
-            rp = CreateReply("ERROR");
+            reply = CreateReply("ERROR");
+            SendReply(responseObserver, reply);
         }
-
-        SendReply(responseObserver, rp);
     }
 
     @Override
     public void delVers(Comunicacao.DelRequestVers request,
                         StreamObserver<Comunicacao.Reply> responseObserver) {
-
+        Comunicacao.Reply reply;
         BigInteger key = ToBigInteger(request.getKey().getValue());
-
-        Comunicacao.Reply rp = null;
 
         if(hashtable.containsKey(key)) {
             HashtableValue htValue = hashtable.get(key);
@@ -101,50 +99,53 @@ public class DbNosqlService extends CrudKeyValueGrpc.CrudKeyValueImplBase{
             if(htValue.version == request.getVersion()) {
                 hashtable.remove(key);
 
-                rp = CreateReply("SUCCESS", htValue.version,htValue.timestamp,htValue.data);
+                reply = CreateReply("SUCCESS", htValue.version,htValue.timestamp,htValue.data);
+                SendReply(responseObserver, reply);
+
+                writeHashtableFile(hashtable);
             }
             else {
-                rp = CreateReply("ERROR_WV", htValue.version,htValue.timestamp,htValue.data);
+                reply = CreateReply("ERROR_WV", htValue.version,htValue.timestamp,htValue.data);
+                SendReply(responseObserver, reply);
             }
         }
         else {
-            rp = CreateReply("ERROR_NE");
+            reply = CreateReply("ERROR_NE");
+            SendReply(responseObserver, reply);
         }
-
-        SendReply(responseObserver, rp);
-
     }
 
     @Override
     public void testAndSet(Comunicacao.TestAndSetRequest request,
                            StreamObserver<Comunicacao.Reply> responseObserver) {
-
+        Comunicacao.Reply reply;
         BigInteger key = ToBigInteger(request.getKey().getValue());
-
-        Comunicacao.Reply rp = null;
 
         if(hashtable.containsKey(key)) {
             HashtableValue htValue = hashtable.get(key);
 
             if(htValue.version == request.getVersion()) {
-                rp = CreateReply("SUCCESS", htValue.version, htValue.timestamp, htValue.data);
-
                 Comunicacao.VTripla vTriple = request.getValue();
                 htValue.timestamp = vTriple.getTimestamp();
                 htValue.data = ToByteArray(vTriple.getData());
                 htValue.version = vTriple.getVersion();
 
                 hashtable.put(key,htValue);
+
+                reply = CreateReply("SUCCESS", htValue.version, htValue.timestamp, htValue.data);
+                SendReply(responseObserver, reply);
+
+                writeHashtableFile(hashtable);
             }
             else {
-                rp = CreateReply("ERROR_WV", htValue.version, htValue.timestamp, htValue.data);
+                reply = CreateReply("ERROR_WV", htValue.version, htValue.timestamp, htValue.data);
+                SendReply(responseObserver, reply);
             }
         }
         else {
-            rp = CreateReply("ERROR_NE");
+            reply = CreateReply("ERROR_NE");
+            SendReply(responseObserver, reply);
         }
-
-        SendReply(responseObserver, rp);
     }
 
     private void writeHashtableFile(Hashtable<BigInteger, HashtableValue> hashtable) {
@@ -181,10 +182,9 @@ public class DbNosqlService extends CrudKeyValueGrpc.CrudKeyValueImplBase{
         return rp.build();
     }
 
-    public Comunicacao.Reply CreateReply(String ErrorCode) {//, Comunicacao.VTripla VTripla){
+    public Comunicacao.Reply CreateReply(String ErrorCode) {
         Comunicacao.Reply.Builder rp = Comunicacao.Reply.newBuilder();
         rp.setError(ErrorCode);
-//        rp.setValue(VTripla);
         return rp.build();
     }
 

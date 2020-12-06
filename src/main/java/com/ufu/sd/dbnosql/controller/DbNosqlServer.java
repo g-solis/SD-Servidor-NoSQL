@@ -59,7 +59,7 @@ public class DbNosqlServer{
 
     public static void main(String[] args) {
         try {
-            DbNosqlServer server = new DbNosqlServer(8980, "hash");
+            DbNosqlServer server = new DbNosqlServer(8980, "hashtable");
             server.start();
             server.blockUntilShutdown();
         } catch (Exception e) {
