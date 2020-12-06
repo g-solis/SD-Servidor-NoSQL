@@ -6,14 +6,14 @@ import com.ufu.sd.dbnosql.repository.DbNosqlRepository;
 import io.grpc.stub.*;
 
 import java.math.BigInteger;
-import java.util.Hashtable;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DbNosqlService extends CrudKeyValueGrpc.CrudKeyValueImplBase{
     private static final Logger logger = Logger.getLogger(DbNosqlServer.class.getName());
 
-    private Hashtable<BigInteger, HashtableValue> hashtable;
+    private ConcurrentHashMap<BigInteger, HashtableValue> hashtable;
     private DbNosqlRepository dbNosqlRepository;
 
     public DbNosqlService(String dirHashtable) {
@@ -25,25 +25,23 @@ public class DbNosqlService extends CrudKeyValueGrpc.CrudKeyValueImplBase{
     public void set(Comunicacao.SetRequest request,
                     StreamObserver<Comunicacao.Reply> responseObserver) {
         Comunicacao.Reply reply;
+        HashtableValue htValue;
+
         BigInteger key = ToBigInteger(request.getKey().getValue());
+        long timestamp = request.getTimestamp();
+        byte[] data = request.getData().toByteArray();
 
-        if(hashtable.containsKey(key)) {
-            HashtableValue htValue =  hashtable.get(key);
+        htValue = hashtable.putIfAbsent(key, new HashtableValue(1,timestamp,data));
 
-            reply = CreateReply("ERROR", htValue.version,htValue.timestamp,htValue.data);
-            SendReply(responseObserver, reply);
-
-        }
-        else {
-            long timestamp = request.getTimestamp();
-            byte[] data = request.getData().toByteArray();
-
-            hashtable.put(key, new HashtableValue(1,timestamp,data));
-
+        if(htValue == null) {
             reply = CreateReply("SUCCESS");
             SendReply(responseObserver, reply);
 
             writeHashtableFile(hashtable);
+        }
+        else {
+            reply = CreateReply("ERROR", htValue.version,htValue.timestamp,htValue.data);
+            SendReply(responseObserver, reply);
         }
     }
 
@@ -51,12 +49,14 @@ public class DbNosqlService extends CrudKeyValueGrpc.CrudKeyValueImplBase{
     public void get(Comunicacao.GetRequest request,
                     StreamObserver<Comunicacao.Reply> responseObserver) {
         Comunicacao.Reply reply;
+        HashtableValue htValue;
+
         BigInteger key = ToBigInteger(request.getKey().getValue());
 
-        if(hashtable.containsKey(key)) {
-            HashtableValue htValue =  hashtable.get(key);
+        htValue = hashtable.get(key);
 
-            reply = CreateReply("SUCCESS", htValue.version,htValue.timestamp,htValue.data);
+        if(htValue != null) {
+            reply = CreateReply("SUCCESS", htValue.version, htValue.timestamp, htValue.data);
             SendReply(responseObserver, reply);
 
             writeHashtableFile(hashtable);
@@ -71,12 +71,14 @@ public class DbNosqlService extends CrudKeyValueGrpc.CrudKeyValueImplBase{
     public void del(Comunicacao.DelRequest request,
                     StreamObserver<Comunicacao.Reply> responseObserver) {
         Comunicacao.Reply reply;
+        HashtableValue htValue;
+
         BigInteger key = ToBigInteger(request.getKey().getValue());
 
-        if(hashtable.containsKey(key)) {
-            HashtableValue htValue =  hashtable.remove(key);
+        htValue = hashtable.remove(key);
 
-            reply = CreateReply("SUCCESS", htValue.version,htValue.timestamp,htValue.data);
+        if(htValue != null) {
+            reply = CreateReply("SUCCESS", htValue.version, htValue.timestamp, htValue.data);
             SendReply(responseObserver, reply);
 
             writeHashtableFile(hashtable);
@@ -91,64 +93,64 @@ public class DbNosqlService extends CrudKeyValueGrpc.CrudKeyValueImplBase{
     public void delVers(Comunicacao.DelRequestVers request,
                         StreamObserver<Comunicacao.Reply> responseObserver) {
         Comunicacao.Reply reply;
+        HashtableValue htValue;
+
         BigInteger key = ToBigInteger(request.getKey().getValue());
 
-        if(hashtable.containsKey(key)) {
-            HashtableValue htValue = hashtable.get(key);
-
-            if(htValue.version == request.getVersion()) {
-                hashtable.remove(key);
-
-                reply = CreateReply("SUCCESS", htValue.version,htValue.timestamp,htValue.data);
+        do {
+            htValue = hashtable.get(key);
+            if (htValue == null) {
+                reply = CreateReply("ERROR_NE");
                 SendReply(responseObserver, reply);
-
-                writeHashtableFile(hashtable);
+                return;
             }
-            else {
-                reply = CreateReply("ERROR_WV", htValue.version,htValue.timestamp,htValue.data);
+            if (htValue.version != request.getVersion()) {
+                reply = CreateReply("ERROR_WV", htValue.version, htValue.timestamp, htValue.data);
                 SendReply(responseObserver, reply);
+                return;
             }
-        }
-        else {
-            reply = CreateReply("ERROR_NE");
-            SendReply(responseObserver, reply);
-        }
+        } while (!hashtable.remove(key, htValue));
+
+        reply = CreateReply("SUCCESS", htValue.version,htValue.timestamp,htValue.data);
+        SendReply(responseObserver, reply);
+
+        writeHashtableFile(hashtable);
     }
 
     @Override
     public void testAndSet(Comunicacao.TestAndSetRequest request,
                            StreamObserver<Comunicacao.Reply> responseObserver) {
         Comunicacao.Reply reply;
+        HashtableValue htValue;
+
+        Comunicacao.VTripla vTriple = request.getValue();
+        HashtableValue newHtValue = new HashtableValue(
+            vTriple.getVersion(),
+            vTriple.getTimestamp(),
+            ToByteArray(vTriple.getData())
+        );
+
         BigInteger key = ToBigInteger(request.getKey().getValue());
 
-        if(hashtable.containsKey(key)) {
-            HashtableValue htValue = hashtable.get(key);
-
-            if(htValue.version == request.getVersion()) {
-                Comunicacao.VTripla vTriple = request.getValue();
-                htValue.timestamp = vTriple.getTimestamp();
-                htValue.data = ToByteArray(vTriple.getData());
-                htValue.version = vTriple.getVersion();
-
-                hashtable.put(key,htValue);
-
-                reply = CreateReply("SUCCESS", htValue.version, htValue.timestamp, htValue.data);
+        do {
+            htValue = hashtable.get(key);
+            if (htValue == null) {
+                reply = CreateReply("ERROR_NE");
                 SendReply(responseObserver, reply);
-
-                writeHashtableFile(hashtable);
+                return;
             }
-            else {
+            if (htValue.version != request.getVersion()) {
                 reply = CreateReply("ERROR_WV", htValue.version, htValue.timestamp, htValue.data);
                 SendReply(responseObserver, reply);
+                return;
             }
-        }
-        else {
-            reply = CreateReply("ERROR_NE");
-            SendReply(responseObserver, reply);
-        }
+        } while (!hashtable.replace(key, htValue, newHtValue));
+
+        reply = CreateReply("SUCCESS", htValue.version, htValue.timestamp, htValue.data);
+        SendReply(responseObserver, reply);
     }
 
-    private void writeHashtableFile(Hashtable<BigInteger, HashtableValue> hashtable) {
+    private void writeHashtableFile(ConcurrentHashMap<BigInteger, HashtableValue> hashtable) {
         try {
             dbNosqlRepository.writeHashtableFile(hashtable);
         } catch (Exception e) {
@@ -156,14 +158,14 @@ public class DbNosqlService extends CrudKeyValueGrpc.CrudKeyValueImplBase{
         }
     }
 
-    private Hashtable<BigInteger, HashtableValue> initializeHashtable() {
+    private ConcurrentHashMap<BigInteger, HashtableValue> initializeHashtable() {
         try {
-            Hashtable<BigInteger, HashtableValue> hashtable = this.dbNosqlRepository.readHashtableFile();
+            ConcurrentHashMap<BigInteger, HashtableValue> hashtable = this.dbNosqlRepository.readHashtableFile();
             logger.info("Reading previous Hashtable\nSIZE TABLE: " + hashtable.size());
             return hashtable;
         } catch (Exception e) {
             logger.log(Level.WARNING, "Starting a new Hashtable\nERROR: ", e);
-            return new Hashtable<>();
+            return new ConcurrentHashMap<>();
         }
     }
 
@@ -192,16 +194,6 @@ public class DbNosqlService extends CrudKeyValueGrpc.CrudKeyValueImplBase{
         responseObserver.onNext(Reply);
         responseObserver.onCompleted();
     }
-
-//    public void SendReply(StreamObserver<Comunicacao.Reply> responseObserver, String ErrorCode, long Version, long Timestamp, byte[] Data)
-//    {
-//        SendReply(responseObserver, CreateReply(ErrorCode,Version,Timestamp,Data));
-//    }
-//
-//    public void SendReply(StreamObserver<Comunicacao.Reply> responseObserver, String ErrorCode, Comunicacao.VTripla VTripla)
-//    {
-//        SendReply(responseObserver, CreateReply(ErrorCode,VTripla));
-//    }
 
     public ByteString ToByteString(BigInteger BigInt)
     {

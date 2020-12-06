@@ -161,14 +161,14 @@ public class ClientService {
 
     try {
       ClientService client2 = new ClientService(channel);
-      byte[] key = "001".getBytes();
-      byte[] data = "Any String".getBytes();
+      byte[] key = "003".getBytes();
+      byte[] data = "Three".getBytes();
 
-      client2.set(key, 55, data);
+//      client2.set(key, 777, data);
 //      client2.get(key);
 //      client2.del(key);
 //      client2.delVers(key,1);
-//      client2.testAndSet(key,5,54,data,1);
+      client2.testAndSet(key,3,588,data,5);
 
     } finally {
       channel.shutdownNow().awaitTermination(5, TimeUnit.SECONDS);
