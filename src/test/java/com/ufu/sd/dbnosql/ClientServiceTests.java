@@ -155,6 +155,8 @@ class ClientServiceTests {
                 .build();
 
         try {
+            Logger.getLogger("io.grpc").setLevel(Level.WARNING);
+
             ClientServiceTests client2 = new ClientServiceTests(channel);
             byte[] data = "Data Test".getBytes();
 
@@ -163,115 +165,64 @@ class ClientServiceTests {
             client2.set("003".getBytes(), 00000, data); //AUX
 
             response = client2.set("001".getBytes(), 00001, data); //success
-            if (Objects.equals(response.getError(), "SUCCESS")) {
-                logger.info("OK - SET SUCCESS");
-            } else {
-                logger.info("FAILED - SET SUCCESS");
-            }
+            LogError(response, "Set Data in 001");
 
             response = client2.set("001".getBytes(), 00002, data); //error
-            if (Objects.equals(response.getError(), "ERROR")) {
-                logger.info("OK - SET ERROR");
-            } else {
-                logger.info("FAILED - SET ERROR");
-            }
+            LogError(response, "Set Data in 001");
 
             response = client2.get("001".getBytes()); //success
-            if (Objects.equals(response.getError(), "ERROR")) {
-                logger.info("OK - GET SUCCESS");
-            } else {
-                logger.info("FAILED - GET SUCCESS");
-            }
+            LogError(response, "Get Data from 001");
 
             response = client2.get("00x".getBytes()); //error
-            if (Objects.equals(response.getError(), "ERROR")) {
-                logger.info("OK - GET ERROR");
-            } else {
-                logger.info("FAILED - GET ERROR");
-            }
+            LogError(response, "Get Data from 00x");
 
             response = client2.del("001".getBytes()); //success
-            if (Objects.equals(response.getError(), "ERROR")) {
-                logger.info("OK - DEL SUCCESS");
-            } else {
-                logger.info("FAILED - DEL SUCCESS");
-            }
+            LogError(response, "Delete Data from 001");
 
             response = client2.del("00x".getBytes()); //error
-            if (Objects.equals(response.getError(), "ERROR")) {
-                logger.info("OK - DEL ERROR");
-            } else {
-                logger.info("FAILED - DEL ERROR");
-            }
+            LogError(response, "Delete Data from 00x");
 
             response = client2.delVers("002".getBytes(), 2); //error WV
-            if (Objects.equals(response.getError(), "ERROR")) {
-                logger.info("OK - DELVERS ERROR WV");
-            } else {
-                logger.info("FAILED - DELVERS ERROR WV");
-            }
+            LogError(response, "Delete(Version 2) Data from 002"," WV");
 
             response = client2.delVers("002".getBytes(), 1); //success
-            if (Objects.equals(response.getError(), "ERROR")) {
-                logger.info("OK - DELVERS SUCCESS");
-            } else {
-                logger.info("FAILED - DELVERS SUCCESS");
-            }
+            LogError(response, "Delete(Version 1) Data from 002");
 
             response = client2.delVers("00x".getBytes(), 1); //error NE
-            if (Objects.equals(response.getError(), "ERROR")) {
-                logger.info("OK - DELVERS ERROR NE");
-            } else {
-                logger.info("FAILED - DELVERS ERROR NE");
-            }
-
+            LogError(response, "Delete(Version 1) Data from 00x");
 
             response = client2.testAndSet("003".getBytes(),2,00003, data, 1); //success
-            if (Objects.equals(response.getError(), "ERROR")) {
-                logger.info("OK - TESTSET SUCCESS");
-            } else {
-                logger.info("FAILED - TESTSET SUCCESS");
-            }
+            LogError(response, "TestAndSet(Version 1) Data from 003");
 
             response = client2.testAndSet("003".getBytes(),2,00004, data, 3); //error WV
-            if (Objects.equals(response.getError(), "ERROR")) {
-                logger.info("OK - TESTSET ERROR WV");
-            } else {
-                logger.info("FAILED - TESTSET ERROR WV");
-            }
+            LogError(response, "TestAndSet(Version 3) Data from 003"," WV");
 
             response = client2.testAndSet("00x".getBytes(),3,00005, data, 5); //error NE
-            if (Objects.equals(response.getError(), "ERROR")) {
-                logger.info("OK - TESTSET ERROR NE");
-            } else {
-                logger.info("FAILED - TESTSET ERROR NE");
-            }
+            LogError(response, "TestAndSet(Version 5) Data from 00x"," NE");
 
-            int k = 0;
-            int d = 0;
-            long ts = 0;
-            String stringKey;
-            String stringData;
-            byte[] key;
-            byte[] dataT;
+            String str;
+            byte[] strBytes;
 
-            for (int i = 0; i <= 1000; i = i + 1) {
-                k = k + i;
-                d = d + i;
-                ts = ts + i;
-                stringKey = "00"+k;
-                stringData = "00"+d;
-                key = stringKey.getBytes();
-                dataT = stringData.getBytes();
+            for (int i = 0; i <= 1000; i++) {
+                str = "00"+i;
+                strBytes = str.getBytes();
 
-                Comunicacao.Reply responseT = client2.set(key, ts, dataT);
-                if (Objects.equals(response.getError(), "SUCCESS")) {
-                    //gera alerta
-                }
+                Comunicacao.Reply responseT = client2.set(strBytes, i, strBytes);
+                LogError(responseT, String.format("Set Data in %4.0f", (float) i));
             }
 
         } finally {
             channel.shutdownNow().awaitTermination(5, TimeUnit.SECONDS);
         }
+    }
+
+    private static void LogError(Comunicacao.Reply Reply, String PreMessage,String PostMessage)
+    {
+        logger.info(PreMessage + " - " + (Objects.equals(Reply.getError(), "SUCCESS") ? "Success" : "Error") + PostMessage);
+    }
+
+    private static void LogError(Comunicacao.Reply Reply, String PreMessage)
+    {
+        LogError(Reply,PreMessage,"");
     }
 }
