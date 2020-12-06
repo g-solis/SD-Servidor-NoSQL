@@ -36,8 +36,6 @@ public class DbNosqlService extends CrudKeyValueGrpc.CrudKeyValueImplBase{
         if(htValue == null) {
             reply = CreateReply("SUCCESS");
             SendReply(responseObserver, reply);
-
-            writeHashtableFile(hashtable);
         }
         else {
             reply = CreateReply("ERROR", htValue.version,htValue.timestamp,htValue.data);
@@ -58,8 +56,6 @@ public class DbNosqlService extends CrudKeyValueGrpc.CrudKeyValueImplBase{
         if(htValue != null) {
             reply = CreateReply("SUCCESS", htValue.version, htValue.timestamp, htValue.data);
             SendReply(responseObserver, reply);
-
-            writeHashtableFile(hashtable);
         }
         else {
             reply = CreateReply("ERROR");
@@ -80,8 +76,6 @@ public class DbNosqlService extends CrudKeyValueGrpc.CrudKeyValueImplBase{
         if(htValue != null) {
             reply = CreateReply("SUCCESS", htValue.version, htValue.timestamp, htValue.data);
             SendReply(responseObserver, reply);
-
-            writeHashtableFile(hashtable);
         }
         else {
             reply = CreateReply("ERROR");
@@ -113,8 +107,6 @@ public class DbNosqlService extends CrudKeyValueGrpc.CrudKeyValueImplBase{
 
         reply = CreateReply("SUCCESS", htValue.version,htValue.timestamp,htValue.data);
         SendReply(responseObserver, reply);
-
-        writeHashtableFile(hashtable);
     }
 
     @Override
@@ -150,8 +142,9 @@ public class DbNosqlService extends CrudKeyValueGrpc.CrudKeyValueImplBase{
         SendReply(responseObserver, reply);
     }
 
-    private void writeHashtableFile(ConcurrentHashMap<BigInteger, HashtableValue> hashtable) {
+    public void writeHashtableFile() {
         try {
+            logger.info("Saving Hashtable disc");
             dbNosqlRepository.writeHashtableFile(hashtable);
         } catch (Exception e) {
             logger.log(Level.WARNING, "Error writing hashtable\nERROR: ", e);
