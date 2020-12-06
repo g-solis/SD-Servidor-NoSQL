@@ -1,30 +1,27 @@
 package com.ufu.sd.dbnosql.controller;
 
 import com.ufu.sd.dbnosql.DbNosqlService;
-import com.ufu.sd.dbnosql.model.HashtableValue;
-import com.ufu.sd.dbnosql.repository.DbNosqlRepository;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
-import io.grpc.stub.StreamObserver;
+import org.springframework.boot.SpringApplication;
+
 import java.io.IOException;
-import java.math.BigInteger;
-import java.net.URL;
-import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 
 public class DbNosqlServer{
     private static final Logger logger = Logger.getLogger(DbNosqlServer.class.getName());
 
     private final int port;
     private final Server server;
+    public static DbNosqlService ServiceInstance;
 
     public DbNosqlServer(int port, String dirHashtable) {
         this.port = port;
-        server = ServerBuilder.forPort(port).addService(new DbNosqlService(dirHashtable)).build();
+        ServiceInstance = new DbNosqlService(dirHashtable);
+        server = ServerBuilder.forPort(port).addService(ServiceInstance).build();
     }
 
     public void start() throws IOException {
@@ -60,11 +57,11 @@ public class DbNosqlServer{
     public static void main(String[] args) {
         try {
             DbNosqlServer server = new DbNosqlServer(8980, "hashtable");
+            SpringApplication.run(SpringBooter.class,args);
             server.start();
             server.blockUntilShutdown();
         } catch (Exception e) {
             logger.log(Level.WARNING, "Start server failed: ", e);
         }
     }
-
 }

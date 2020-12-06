@@ -4,6 +4,10 @@ import com.ufu.sd.dbnosql.controller.*;
 import com.ufu.sd.dbnosql.model.HashtableValue;
 import com.ufu.sd.dbnosql.repository.DbNosqlRepository;
 import io.grpc.stub.*;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigInteger;
 import java.util.Hashtable;
@@ -165,6 +169,12 @@ public class DbNosqlService extends CrudKeyValueGrpc.CrudKeyValueImplBase{
             logger.log(Level.WARNING, "Starting a new Hashtable\nERROR: ", e);
             return new Hashtable<>();
         }
+    }
+
+    public void writeHashTableFilePub()
+    {
+        if(hashtable != null && dbNosqlRepository != null)
+            writeHashtableFile(hashtable);
     }
 
     public Comunicacao.VTripla CreateVTripla(long Version, long Timestamp, byte[] Data) {
