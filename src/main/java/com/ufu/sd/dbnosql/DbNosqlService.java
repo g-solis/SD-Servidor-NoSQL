@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 public class DbNosqlService extends CrudKeyValueGrpc.CrudKeyValueImplBase{
     private static final Logger logger = Logger.getLogger(DbNosqlServer.class.getName());
 
-    private Hashtable<BigInteger, HashtableValue> hashtable;
+    public Hashtable<BigInteger, HashtableValue> hashtable;
     private DbNosqlRepository dbNosqlRepository;
 
     public DbNosqlService(String dirHashtable) {
@@ -148,7 +148,7 @@ public class DbNosqlService extends CrudKeyValueGrpc.CrudKeyValueImplBase{
         }
     }
 
-    private void writeHashtableFile(Hashtable<BigInteger, HashtableValue> hashtable) {
+    public void writeHashtableFile() {
         try {
             dbNosqlRepository.writeHashtableFile(hashtable);
         } catch (Exception e) {
@@ -165,12 +165,6 @@ public class DbNosqlService extends CrudKeyValueGrpc.CrudKeyValueImplBase{
             logger.log(Level.WARNING, "Starting a new Hashtable\nERROR: ", e);
             return new Hashtable<>();
         }
-    }
-
-    public void writeHashTableFilePub()
-    {
-        if(hashtable != null && dbNosqlRepository != null)
-            writeHashtableFile(hashtable);
     }
 
     public Comunicacao.VTripla CreateVTripla(long Version, long Timestamp, byte[] Data) {

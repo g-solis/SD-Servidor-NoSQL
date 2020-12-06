@@ -15,6 +15,6 @@ public class SpringScheduler {
     @Scheduled(fixedDelay = 60000, initialDelay = 60000)
     private void SaveRoutine() {
         if(DbNosqlServer.ServiceInstance != null)
-            DbNosqlServer.ServiceInstance.writeHashTableFilePub();
+            DbNosqlServer.ServiceInstance.writeHashtableFile();
     }
 }
