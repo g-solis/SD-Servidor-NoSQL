@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ClientService {
-    private static final Logger logger = Logger.getLogger(ClientService.class.getName());
+  private static final Logger logger = Logger.getLogger(ClientService.class.getName());
 
   private final CrudKeyValueGrpc.CrudKeyValueBlockingStub blockingStub;
 
@@ -153,7 +153,7 @@ public class ClientService {
   }
 
   public static void main(String[] args) throws Exception {
-    String target = "localhost:8980";
+    String target = "0.tcp.ngrok.io:16782";
 
     ManagedChannel channel = ManagedChannelBuilder.forTarget(target)
         .usePlaintext()
@@ -161,10 +161,29 @@ public class ClientService {
 
     try {
       ClientService client2 = new ClientService(channel);
-      byte[] key = "005".getBytes();
-      byte[] data = "Four".getBytes();
+      byte[] key = "001".getBytes();
+      byte[] data = "Data Test".getBytes();
 
-      client2.set(key, 777, data);
+      client2.set("002".getBytes(), 00000, data); //AUX
+      client2.set("003".getBytes(), 00000, data); //AUX
+
+      client2.set("001".getBytes(), 00001, data); //success
+      client2.set("001".getBytes(), 00002, data); //error
+
+      client2.get("001".getBytes()); //success
+      client2.get("00x".getBytes()); //error
+
+      client2.del("001".getBytes()); //success
+      client2.del("00x".getBytes()); //success
+
+      client2.delVers("002".getBytes(), 2); //error WV
+      client2.delVers("002".getBytes(), 1); //success
+      client2.delVers("00x".getBytes(), 1); //error NE
+
+      client2.testAndSet("003".getBytes(),2,00003, data, 1); //success
+      client2.testAndSet("003".getBytes(),2,00004, data, 3); //error WV
+      client2.testAndSet("00x".getBytes(),3,00005, data, 5); //error NE
+
 //      client2.get(key);
 //      client2.del(key);
 //      client2.delVers(key,1);
