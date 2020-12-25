@@ -1,157 +1,170 @@
 package com.ufu.sd.dbnosql;
-import com.google.protobuf.ByteString;
+//import com.google.protobuf.ByteString;
+import org.apache.ratis.protocol.RaftClientReply;
+import org.apache.ratis.thirdparty.com.google.protobuf.ByteString;
+
+import java.nio.charset.Charset;
+import java.util.Objects;
+import java.util.function.Supplier;
 import com.ufu.sd.dbnosql.controller.*;
 import com.ufu.sd.dbnosql.model.HashtableValue;
-import com.ufu.sd.dbnosql.repository.DbNosqlRepository;
 import io.grpc.stub.*;
 import org.apache.ratis.client.RaftClient;
 import org.apache.ratis.protocol.Message;
-import org.apache.ratis.protocol.RaftClientReply;
-import org.apache.ratis.statemachine.TransactionContext;
 
+import java.io.IOException;
 import java.math.BigInteger;
-import java.nio.charset.Charset;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DbNosqlService extends CrudKeyValueGrpc.CrudKeyValueImplBase{
-    private static final Logger logger = Logger.getLogger(DbNosqlServer.class.getName());
-
     public RaftClient raftClient;
 
-//    private ConcurrentHashMap<BigInteger, HashtableValue> hashtable;
-//    private DbNosqlRepository dbNosqlRepository;
-
-    public DbNosqlService() {
-//        this.dbNosqlRepository = new DbNosqlRepository(dirHashtable);
-//        this.hashtable = initializeHashtable();
-    }
+    public DbNosqlService() { }
 
     @Override
     public void set(Comunicacao.SetRequest request,
                     StreamObserver<Comunicacao.Reply> responseObserver) {
         Comunicacao.Reply reply;
-        HashtableValue htValue;
 
+        BigInteger key = ToBigInteger(request.getKey().getValue());
+        long timestamp = request.getTimestamp();
+        byte[] data = request.getData().toByteArray();
 
-//        RaftClientReply rep = raftClient.send(Message.valueOf(ToByteString("Set:" + request.toString())));
+        String requestMessage = "set:" + new String(key.toByteArray()) + ":" + timestamp + ":" + new String(data);
 
+        RaftClientReply getValue = null;
+        try {
+            getValue = raftClient.send(Message.valueOf(requestMessage));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String[] responses = getValue.getMessage().getContent().toString(Charset.defaultCharset()).split(":");
 
-
-//        BigInteger key = ToBigInteger(request.getKey().getValue());
-//        long timestamp = request.getTimestamp();
-//        byte[] data = request.getData().toByteArray();
-//
-//        htValue = hashtable.putIfAbsent(key, new HashtableValue(1,timestamp,data));
-//
-//        if(htValue == null) {
-//            reply = CreateReply("SUCCESS");
-//            SendReply(responseObserver, reply);
-//        }
-//        else {
-//            reply = CreateReply("ERROR", htValue.version,htValue.timestamp,htValue.data);
-//            SendReply(responseObserver, reply);
-//        }
+        if (Objects.equals(responses[0], "SUCCESS")) {
+            reply = CreateReply("SUCCESS");
+            SendReply(responseObserver, reply);
+        }
+        else {
+            reply = CreateReply("ERROR", Long.parseLong(responses[1]), Long.parseLong(responses[2]), responses[3].getBytes());
+            SendReply(responseObserver, reply);
+        }
     }
 
     @Override
     public void get(Comunicacao.GetRequest request,
                     StreamObserver<Comunicacao.Reply> responseObserver) {
         Comunicacao.Reply reply;
-        HashtableValue htValue;
-//
-//        BigInteger key = ToBigInteger(request.getKey().getValue());
-//
-//        htValue = hashtable.get(key);
-//
-//        if(htValue != null) {
-//            reply = CreateReply("SUCCESS", htValue.version, htValue.timestamp, htValue.data);
-//            SendReply(responseObserver, reply);
-//        }
-//        else {
-//            reply = CreateReply("ERROR");
-//            SendReply(responseObserver, reply);
-//        }
+
+        BigInteger key = ToBigInteger(request.getKey().getValue());
+
+        RaftClientReply getValue = null;
+        try {
+            getValue = raftClient.sendReadOnly(Message.valueOf(new String(key.toByteArray())));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        String[] responses = getValue.getMessage().getContent().toString(Charset.defaultCharset()).split(":");
+
+        if (Objects.equals(responses[0], "SUCCESS")) {
+            reply = CreateReply("SUCCESS", Long.parseLong(responses[1]), Long.parseLong(responses[2]), responses[3].getBytes());
+            SendReply(responseObserver, reply);
+        }
+        else {
+            reply = CreateReply("ERROR");
+            SendReply(responseObserver, reply);
+        }
     }
 
     @Override
     public void del(Comunicacao.DelRequest request,
                     StreamObserver<Comunicacao.Reply> responseObserver) {
         Comunicacao.Reply reply;
-        HashtableValue htValue;
-//
-//        BigInteger key = ToBigInteger(request.getKey().getValue());
-//
-//        htValue = hashtable.remove(key);
-//
-//        if(htValue != null) {
-//            reply = CreateReply("SUCCESS", htValue.version, htValue.timestamp, htValue.data);
-//            SendReply(responseObserver, reply);
-//        }
-//        else {
-//            reply = CreateReply("ERROR");
-//            SendReply(responseObserver, reply);
-//        }
+
+        BigInteger key = ToBigInteger(request.getKey().getValue());
+
+        String requestMessage = "del:" + new String(key.toByteArray());
+
+        RaftClientReply getValue = null;
+        try {
+            getValue = raftClient.send(Message.valueOf(requestMessage));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String[] responses = getValue.getMessage().getContent().toString(Charset.defaultCharset()).split(":");
+
+        if (Objects.equals(responses[0], "SUCCESS")) {
+            reply = CreateReply("SUCCESS", Long.parseLong(responses[1]), Long.parseLong(responses[2]), responses[3].getBytes());
+            SendReply(responseObserver, reply);
+        }
+        else {
+            reply = CreateReply("ERROR");
+            SendReply(responseObserver, reply);
+        }
     }
 
     @Override
     public void delVers(Comunicacao.DelRequestVers request,
                         StreamObserver<Comunicacao.Reply> responseObserver) {
         Comunicacao.Reply reply;
-        HashtableValue htValue;
 
-//        BigInteger key = ToBigInteger(request.getKey().getValue());
-//
-//        do {
-//            htValue = hashtable.get(key);
-//            if (htValue == null) {
-//                reply = CreateReply("ERROR_NE");
-//                SendReply(responseObserver, reply);
-//                return;
-//            }
-//            if (htValue.version != request.getVersion()) {
-//                reply = CreateReply("ERROR_WV", htValue.version, htValue.timestamp, htValue.data);
-//                SendReply(responseObserver, reply);
-//                return;
-//            }
-//        } while (!hashtable.remove(key, htValue));
-//
-//        reply = CreateReply("SUCCESS", htValue.version,htValue.timestamp,htValue.data);
-//        SendReply(responseObserver, reply);
+        BigInteger key = ToBigInteger(request.getKey().getValue());
+        long version = request.getVersion();
+
+        String requestMessage = "delVers:" + new String(key.toByteArray()) + ":" + version;
+
+        RaftClientReply getValue = null;
+        try {
+            getValue = raftClient.send(Message.valueOf(requestMessage));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String[] responses = getValue.getMessage().getContent().toString(Charset.defaultCharset()).split(":");
+
+        if (Objects.equals(responses[0], "ERROR_NE")) {
+            reply = CreateReply("ERROR_NE");
+            SendReply(responseObserver, reply);
+        }
+        else {
+            reply = CreateReply(responses[0], Long.parseLong(responses[1]), Long.parseLong(responses[2]), responses[3].getBytes());
+            SendReply(responseObserver, reply);
+        }
     }
 
     @Override
     public void testAndSet(Comunicacao.TestAndSetRequest request,
                            StreamObserver<Comunicacao.Reply> responseObserver) {
         Comunicacao.Reply reply;
-        HashtableValue htValue;
 
-//        Comunicacao.VTripla vTriple = request.getValue();
-//        HashtableValue newHtValue = new HashtableValue(
-//            vTriple.getVersion(),
-//            vTriple.getTimestamp(),
-//            ToByteArray(vTriple.getData())
-//        );
-//
-//        BigInteger key = ToBigInteger(request.getKey().getValue());
-//
-//        do {
-//            htValue = hashtable.get(key);
-//            if (htValue == null) {
-//                reply = CreateReply("ERROR_NE");
-//                SendReply(responseObserver, reply);
-//                return;
-//            }
-//            if (htValue.version != request.getVersion()) {
-//                reply = CreateReply("ERROR_WV", htValue.version, htValue.timestamp, htValue.data);
-//                SendReply(responseObserver, reply);
-//                return;
-//            }
-//        } while (!hashtable.replace(key, htValue, newHtValue));
-//
-//        reply = CreateReply("SUCCESS", htValue.version, htValue.timestamp, htValue.data);
-//        SendReply(responseObserver, reply);
+        Comunicacao.VTripla vTriple = request.getValue();
+
+        BigInteger key = ToBigInteger(request.getKey().getValue());
+        long version = request.getVersion();
+        byte[] data = vTriple.getData().toByteArray();
+
+        String requestMessage = "testAndSet:" +
+                new String(key.toByteArray()) + ":" +
+                vTriple.getVersion() + ":" +
+                vTriple.getTimestamp() + ":" +
+                new String(data) + ":" +
+                version;
+
+        RaftClientReply getValue = null;
+        try {
+            getValue = raftClient.send(Message.valueOf(requestMessage));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String[] responses = getValue.getMessage().getContent().toString(Charset.defaultCharset()).split(":");
+
+        if (Objects.equals(responses[0], "ERROR_NE")) {
+            reply = CreateReply("ERROR_NE");
+            SendReply(responseObserver, reply);
+        }
+        else {
+            reply = CreateReply(responses[0], Long.parseLong(responses[1]), Long.parseLong(responses[2]), responses[3].getBytes());
+            SendReply(responseObserver, reply);
+        }
     }
 
     public Comunicacao.VTripla CreateVTripla(long Version, long Timestamp, byte[] Data) {
@@ -180,35 +193,11 @@ public class DbNosqlService extends CrudKeyValueGrpc.CrudKeyValueImplBase{
         responseObserver.onCompleted();
     }
 
-    public ByteString ToByteString(BigInteger BigInt)
-    {
-        return ToByteString(ToByteArray(BigInt));
+    public com.google.protobuf.ByteString ToByteString(byte[] ByteArray) {
+        return com.google.protobuf.ByteString.copyFrom(ByteArray);
     }
 
-    public ByteString ToByteString(byte[] ByteArray)
-    {
-        return ByteString.copyFrom(ByteArray);
-    }
-
-    public ByteString ToByteString(String Str) { return ToByteString(Str.getBytes()); }
-
-    public byte[] ToByteArray(BigInteger BigInt)
-    {
-        return BigInt.toByteArray();
-    }
-
-    public byte[] ToByteArray(ByteString ByteStr)
-    {
-        return ByteStr.toByteArray();
-    }
-
-    public BigInteger ToBigInteger(byte[] ByteArray)
-    {
-        return new BigInteger(ByteArray);
-    }
-
-    public BigInteger ToBigInteger(ByteString ByteStr)
-    {
-        return ToBigInteger(ToByteArray(ByteStr));
+    public BigInteger ToBigInteger(com.google.protobuf.ByteString ByteStr) {
+        return new BigInteger(ByteStr.toByteArray());
     }
 }
